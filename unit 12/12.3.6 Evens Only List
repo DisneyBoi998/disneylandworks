@@ -1,0 +1,35 @@
+function main() {
+    let numList = generateList(50);
+    let evens = onlyEvens(numList);
+    
+	console.log("Original Array: " + numList);
+	console.log();
+	console.log("Even Numbers: " + evens);
+	console.log();
+	console.log("There are " + evens.length + " even numbers in the array");
+}
+
+// This function returns an array of random numbers of num length
+function generateList(num) {
+	let arr = [];
+	for (let i = 0; i < num; i++) {
+		let number = Randomizer.nextInt(1, 100);
+		arr.push(number);
+	}
+	return arr;
+}
+
+// This function returns an array of the even numbers in the 
+// parameter array
+function onlyEvens(numbers) {
+    let evenArray = [];
+
+    for (let num of numbers) {
+        if (num % 2 == 0) {
+            evenArray.push(num);
+        }
+    }
+    return evenArray;
+}
+
+main();
