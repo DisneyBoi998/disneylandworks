@@ -1,0 +1,78 @@
+function main() {
+    // Create a savings account
+    let savings1 = new Account("Shmoney", "Shmurda", 1000);
+    let savings2 = new Account("Sofie", "Johansson", 850);
+    
+    // Print initial balances
+    savings1.printName();
+    savings1.printBalance();
+    console.log();
+
+    savings2.printName();
+    savings2.printBalance();
+    console.log();
+
+    // Transfer money
+    savings1.transfer(300, savings2);
+    console.log();
+    
+    // Print final balances
+    savings1.printName();
+    savings1.printBalance();
+    console.log();
+
+    savings2.printName();
+    savings2.printBalance();
+}
+
+// This constructor creates an account with a name and initial deposit
+function Account(firstName, lastName, initial) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.balance = initial;
+    this.interest = 0.01;
+    
+    // This method prints the full name of the account holder
+    this.printName = function() {
+        console.log(this.firstName + " " + this.lastName);
+        console.log();
+    };
+
+    // This method prints the balance in the account
+    this.printBalance = function() {
+        console.log("Your Balance: $" + this.balance);
+        console.log();
+    };
+
+    // This method withdraws money from the account and returns it
+    this.withdraw = function(amount) {
+        // Only withdraws money if there is enough in the account
+        if (amount <= this.balance) {
+            this.balance -= amount;
+            return amount;
+        } else {
+            console.log("You do not have enough in your account to make that withdrawal.");
+            console.log();
+        }
+    };
+
+    // This method deposits money into the account
+    this.deposit = function(amount) {
+        this.balance += amount;
+    };
+
+    // This method transfers money from this account into another account
+    this.transfer = function(amount, recipient) {
+        if (amount <= this.balance) {
+            this.balance -= amount;
+            recipient.balance += amount;
+            console.log("$" + amount + " was transferred from " + this.firstName + " to " + recipient.firstName);
+            console.log();
+        } else {
+            console.log("You do not have enough in your account to make that transfer.");
+            console.log();
+        }
+    }
+}
+
+main();
