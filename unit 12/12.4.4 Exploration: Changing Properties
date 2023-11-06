@@ -1,0 +1,105 @@
+/* This program allows the user to adjust the color and
+size of all of the circles on the screen by pressing 
+specific keys. The program must be able to iterate through
+all of the circles in the array in order to adjust all of
+them efficiently. 
+*/
+
+const CIRC_COUNT = 75;
+const RADIUS = 10;
+const ADJUSTMENT = 20;
+let r = 66;
+let g = 135;
+let b = 245;
+let size = RADIUS;
+
+// Array that stores all of the circles
+let circles = [];
+
+function main() {
+    // Initializes circles on the screen
+    initCircles(CIRC_COUNT, RADIUS, r, g, b);
+    
+    // Allows user to change color with rgb and RGB keys
+    keyDownMethod(adjust);
+}
+
+// This function updates the color of EVERY circle in the array
+function update() {
+    let color = new Color(r, g, b);
+    for (let circle of circles) {
+        circle.setColor(color);
+        circle.setRadius(size);
+    }
+}
+
+// This function adjusts the values of rgb variables and 
+// then calls the updateColor() function
+function adjust(e) {
+    if (e.key == "r") {
+        if (r >= ADJUSTMENT) {
+            r -= ADJUSTMENT;
+        }
+    }
+
+    if (e.key == "R") {
+        if (r <= 255 - ADJUSTMENT) {
+            r += ADJUSTMENT;
+        }
+    }
+
+    if (e.key == "g") {
+        if (g >= ADJUSTMENT) {
+            g -= ADJUSTMENT;
+        }
+    }
+
+    if (e.key == "G") {
+        if (g <= 255 - ADJUSTMENT) {
+            g += ADJUSTMENT;
+        }
+    }
+
+    if (e.key == "b") {
+        if (b >= ADJUSTMENT) {
+            b -= ADJUSTMENT;
+        }
+    }
+
+    if (e.key == "B") {
+        if (b <= 255 - ADJUSTMENT) {
+            b += ADJUSTMENT;
+        }
+    }
+
+    if (e.key == "+" || e.key == "=") {
+        if (size <= 100) {
+            size += (ADJUSTMENT/10);
+        }
+    }
+
+    if (e.key == "-" || e.key == "_") {
+        if (size >= 5) {
+            size -= (ADJUSTMENT/10);
+        }
+    }
+
+    update();
+}
+
+// This function initializes the circles on the canvas
+function initCircles(count, radius, r, g, b) {
+    for (let i = 0; i < count; i++) {
+        let x = Randomizer.nextInt(radius, getWidth() - radius);
+        let y = Randomizer.nextInt(radius, getHeight() - radius);
+        let color = new Color(r, g, b);
+        
+        let circle = new Circle(radius);
+        circle.setPosition(x, y);
+        circle.setColor(color);
+        add(circle);
+        circles.push(circle);
+    }
+}
+
+main();
