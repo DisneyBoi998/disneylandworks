@@ -1,0 +1,40 @@
+function main() 
+{
+    let number = readInt("Enter a number: ");
+    let drawLineOne = number == 4;
+    let drawLineTwo = number == 44;
+    let isEven = number % 2 == 0;
+    if (drawLineOne || drawLineTwo) 
+    {
+        drawLine();
+    } 
+    else if (isEven) 
+    {
+        drawRect();
+    }
+    else 
+    {
+        drawCir();
+    }
+}
+main();
+function drawLine()
+{
+    let line = new Line(200,200, 300, 200);
+    line.setLineWidth(4);
+    add(line);
+}
+function drawRect()
+{
+    let rect = new Rectangle(200,300);
+    rect.setPosition(100,100);
+    rect.setColor("green");
+    add(rect);
+}
+function drawCir()
+{
+    let cir = new Circle(100);
+    cir.setPosition(getWidth()/2, getHeight()/2);
+    cir.setColor("red");
+    add(cir);
+}

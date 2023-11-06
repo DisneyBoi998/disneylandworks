@@ -1,0 +1,38 @@
+function main() {
+    drawBackground();
+    drawSquares();
+    drawTitle();
+}
+
+function drawBackground() {
+    let background = new Rectangle(getWidth(), getHeight());
+    background.setColor("#F5B7B1");
+    add(background);
+}
+
+function drawTitle() {
+    let title = new Text("A Change in Perspective");
+    title.setPosition(getWidth()/2 - title.getWidth()/2, getHeight() - 50);
+    add(title);
+}
+
+function drawSquares() {
+    let length = 1;
+    let position = 0; // Altnerative solution: students may create a variable for both x and y
+    let color1 = Randomizer.nextColor(); //Not required but makes it fun!
+    let color2 = Randomizer.nextColor(); //Not required but makes it fun!
+    while (length <= getWidth() - length) {
+        let square = new Rectangle(length, length);
+        square.setPosition(position, position);
+        if (length % 3 == 0) { //Students may choose to switch between colors a different way
+            square.setColor(color1);
+        } else {
+            square.setColor(color2);
+        }
+        add(square);
+        length++;
+        position++;
+    }
+}
+
+main();

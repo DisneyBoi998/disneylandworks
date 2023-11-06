@@ -1,0 +1,7 @@
+function main() {
+	for (let i = 500; i >= 0; i= i-7) {
+		console.log(i);
+	}
+}
+
+main();

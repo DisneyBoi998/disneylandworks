@@ -1,0 +1,16 @@
+function main() {
+    let numRolls = 0;
+    while (true) {
+        numRolls++;
+        let rollOne = Randomizer.nextInt(1, 6);
+        let rollTwo = Randomizer.nextInt(1, 6);
+        console.log("Rolled: " + rollOne + " " + rollTwo);
+		
+        if (rollOne == 1 && rollTwo == 1) {
+           break;
+        }		
+    }
+    console.log("It took you " + numRolls + " rolls to get snake eyes.");
+}
+
+main();

@@ -1,0 +1,16 @@
+function main() {
+    let radius = 20;
+    let x = radius;
+    let y = radius;
+    
+    while (x < getWidth()) {
+        let circle = new Circle(radius);
+        circle.setPosition(x, y);
+        circle.setColor(Randomizer.nextColor());
+        add(circle);
+        x = x + 2*radius;
+        y = y + 2*radius;
+    }
+}
+
+main();

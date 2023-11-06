@@ -1,0 +1,53 @@
+function main() 
+{
+    questionOne();
+    console.log("***********");
+    questionTwo();
+    console.log("***********");
+    questionThree();
+    console.log("***********");
+    console.log("Thanks for playing!");
+}
+main();
+function questionOne()
+{
+    let answer = readLine("#1: What is the largest country in the world?: ");
+    let lowercase = answer == "russia";
+    let uppercase = answer == "Russia";
+    if (lowercase || uppercase)
+    {
+       console.log("Correct!");
+    }
+    else
+    {
+        console.log("Wrong, the answer is Russia.");
+    } 
+}
+function questionTwo()
+{
+    let answer = readLine("#2: Who discovered gravity?: ");
+    let lowercase = answer == "newton";
+    let uppercase = answer == "Newton";
+    if (lowercase || uppercase)
+    {
+       console.log("Correct!");
+    }
+    else
+    {
+        console.log("Wrong, the answer is Newton.");
+    } 
+}
+function questionThree()
+{
+    let answer = readLine("#3: Who won the 2022 World Cup?: ");
+    let lowercase = answer == "argentina";
+    let uppercase = answer == "Argentina";
+    if (lowercase || uppercase)
+    {
+       console.log("Correct!");
+    }
+    else
+    {
+        console.log("Wrong, the answer is Argentina.");
+    } 
+}

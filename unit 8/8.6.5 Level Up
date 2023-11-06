@@ -1,0 +1,40 @@
+const NUM_LEVELS = 3;
+
+function main() {
+    let level = 1;
+    console.log();
+    
+    while (level <= NUM_LEVELS) {
+        console.log("You are on level " + level + ".");
+        
+        if (level == 1) {
+            playLevel1();
+        } else if (level == 2) {
+            playLevel2();
+        } else {
+            playLevel3();
+        }
+        
+        console.log("You level up!");
+        console.log();
+        console.log("*************************");
+        console.log();
+        
+        level = level + 1;
+    }
+    console.log("YOU WIN THE GAME! Thanks for playing!");
+}
+
+function playLevel1() {
+    console.log("You run through the dark and scary cave!");
+}
+
+function playLevel2() {
+    console.log("You make it through the fiery lava world!");
+}
+
+function playLevel3() {
+    console.log("You jump from cloud to cloud in the sky world!");
+}
+
+main();

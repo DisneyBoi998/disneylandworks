@@ -1,0 +1,36 @@
+function main() {
+    for (let i = 3; i > 0; i--) {
+        console.log("Lives left: " + i);
+        play();
+    }
+    console.log("You are out of lives. Try again later.");
+}
+
+function play() {
+    console.log('You try and jump over the lava.');
+    let survives = Randomizer.nextBoolean();
+    
+    if(survives) {
+        console.log('You make it!You attempt to climb the mountain.');
+        survives = Randomizer.nextBoolean();
+        
+        if(survives) {
+            console.log('You pull yourself up to the top of the mountain! You attempt to cross the river.');
+            survives = Randomizer.nextBoolean();
+            
+            if(survives) {
+                console.log('You successfully ford the river! You attempt to cross the desert.');
+                survives = Randomizer.nextBoolean();
+                
+                if(survives) {
+                    console.log('You trek for miles across the desert.')
+                }
+            }
+        }
+    }
+    console.log('Despite your efforts, you fall into the never ending pit.');
+    console.log('You lose a life.');
+    console.log("***********************************");
+}
+
+main();

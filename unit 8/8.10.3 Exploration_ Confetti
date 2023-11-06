@@ -1,0 +1,24 @@
+function main() {
+    // 1. Complete the for loop header so that the for loops draws 100 squares
+    for (let i = 0; i < 300; i++) {
+        let square = new Rectangle(10, 10);
+        
+        //Sets the x and y position to a random position
+        let x = Randomizer.nextInt(0, getWidth());
+        let y = Randomizer.nextInt(0, getHeight());
+        square.setPosition(x, y);
+
+        /* 2. Complete the if/else statement to set the color for each square
+        * If i is even, the square should be coral (use the modulus operator!)
+        * If i is odd, the square should be turquoise
+        */
+        if (i % 2 == 0) {
+            square.setColor("coral");
+        } else { 
+            square.setColor("turquoise");
+        }
+        add(square);
+    }
+}
+
+main();

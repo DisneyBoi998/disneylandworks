@@ -1,0 +1,72 @@
+function main() 
+{
+    let circColor = readInt("Enter a number: ");
+    let rectColor = readInt("Enter a number: ");
+    let lineColor = readInt("Enter a number: ");
+    let isEven = circColor % 2 == 0;
+    let circ = new Circle(300);
+    circ.setPosition(getWidth()/2, getHeight()/2);
+    add(circ);
+    let rect = new Rectangle(300,300);
+    rect.setPosition(50,50);
+    add(rect);
+    let line = new Line(200,300, 400, 300);
+    line.setLineWidth(6);
+    add(line);
+    
+    if (isEven)
+    {
+        circ.setColor("red");
+    }
+    else if (circColor > 30)
+    {
+        circ.setColor("blue");
+    }
+    else
+    {
+        circ.setColor("purple");
+    }
+    if (isEven)
+    {
+        rect.setColor("blue");
+    }
+    else if (rectColor > 40)
+    {
+        rect.setColor("yellow");
+    }
+    else
+    {
+        rect.setColor("red");
+    }
+    if (isEven)
+    {
+        line.setColor("orange");
+    }
+    else if (circColor > 20)
+    {
+        line.setColor("indigo");
+    }
+    else
+    {
+        line.setColor("pink");
+    }
+}
+main();
+function drawCircle()
+{
+    let circ = new Circle(100);
+    circ.setPosition(getWidth()/2, getHeight()/2);
+    add(circ);
+}
+function drawLine()
+{
+    let line = new Line(200,300, 400, 300);
+    line.setLineWidth(6);
+    add(line);
+}
+function drawRectangle()
+{
+    let rect = new Rectangle(300,300);
+    rect.setPosition(50,50);
+    add(rect);
+}

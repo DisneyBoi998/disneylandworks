@@ -1,0 +1,48 @@
+function main() 
+{
+    eatBreakfast();
+    sleepMore();
+    makeBed();
+   
+}
+main();
+function eatBreakfast()
+{
+    let isHungry = Randomizer.nextBoolean();
+    let isMorning = true;
+    let eatBreakfast = isHungry && isMorning;
+    if (eatBreakfast)
+    {
+        console.log("I eat breakfast");
+    }
+    else
+    {
+        console.log("I skip breakfast");
+    }
+}
+function sleepMore()
+{
+    let isTired = Randomizer.nextBoolean();
+    let isMorning = true;
+    if (isTired || isMorning)
+    {
+        console.log("I sleep more");
+    }
+    else
+    {
+        console.log("I wake up");
+    }
+}
+function makeBed()
+{
+     let isBusy = true;
+    let isSleeping = Randomizer.nextBoolean();
+    if (isBusy && isSleeping)
+    {
+        console.log("I make my bed");
+    }
+    else
+    {
+        console.log("I don't make my bed");
+    }
+}

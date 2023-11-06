@@ -1,0 +1,15 @@
+function main() 
+{
+	let rollOne = readInt("Pick a number between of 1 and 6: ");
+	let rollTwo = readInt("Pick a number between of 1 and 6: ");
+	let rolledDoubles = (rollOne == rollTwo);
+	if (rolledDoubles)
+	{
+	    console.log("Rolled Doubles? " + rolledDoubles);
+	}
+	else
+	{
+	    console.log("Rolled Doubles? false");
+	}
+}
+main();

@@ -1,0 +1,23 @@
+const NUM_CIRCLES = 15;
+
+function main() {
+	let radius = (getWidth() / NUM_CIRCLES) / 2;
+	let y = getHeight() / 2;
+	
+	for (let i = 0; i < NUM_CIRCLES; i++) {
+		let circle = new Circle(radius);
+		let x = i * (2 * radius) + radius;
+		
+		circle.setPosition(x, y);
+		
+		if (i % 2 == 0) {
+			circle.setColor("red");
+		} else {
+			circle.setColor("green");
+		}		
+		
+		add(circle);
+	}
+}
+
+main();

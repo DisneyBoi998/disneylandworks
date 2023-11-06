@@ -1,0 +1,10 @@
+function main() 
+{
+   let isWindy = true;
+   let isCold = true;
+   let isHot = false;
+   let isSunny = true;
+   let isHumid = false;
+    
+}
+main();

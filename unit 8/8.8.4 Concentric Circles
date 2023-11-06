@@ -1,0 +1,18 @@
+function main() {
+    let count = 0;
+    let radius = 200;
+    while (radius > 0) {
+        let circle = new Circle(radius);
+        circle.setPosition(getWidth()/2, getHeight()/2);
+        if (count % 2 == 0) {
+            circle.setColor("red");
+        } else {
+            circle.setColor("black");
+        }
+        add(circle);
+        count++;
+        radius = radius - 20;
+    }
+}
+
+main();

@@ -1,0 +1,23 @@
+function main() 
+{
+	let lightning = readInt("How long has it been since there was a lightning flash (min)? (Enter -1 if there has been no lightning today) ");
+	let clouds = readBoolean("Are there any clouds that are 4,500 feet thick or greater within the planned flight path? ");
+	let wind = readInt("What is the wind speed? (In knots) ");
+	let precipitation = readBoolean("Is there any precipitation at the launch pad or within the flight path? ");
+	
+	
+	let lightningClear = lightning == -1 || lightning > 30;
+	let cloudClear = clouds == false;
+	let windClear = wind <= 30;
+	let precipitationClear = precipitation == false;
+	
+	if (lightningClear && cloudClear && windClear && precipitationClear)
+	{
+	    console.log("You are go for launch!");
+	}
+	else
+	{
+	    console.log("Postpone the launch due to weather conditions.");
+	}
+}
+main();

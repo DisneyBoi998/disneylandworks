@@ -1,0 +1,48 @@
+function main() {
+    playHappySong();
+    console.log();
+    playSadSong();
+    console.log();
+    playNeutralSong();
+    console.log();
+    
+    
+}
+main();
+
+function playHappySong()
+{
+    let isHappy = false;
+    if (isHappy)
+    {
+        console.log("Because im happy");
+    }
+    else 
+    {
+        console.log("Is this the real life");
+    }
+}
+function playSadSong()
+{
+    let isSad = true;
+    if (isSad) 
+    {
+        console.log("Is this just fantasy");
+    }
+    else
+    {
+        console.log("If you feel like a room without a roof");
+    }
+}
+function playNeutralSong()
+{
+    let isNeutral = true;
+    if (isNeutral)
+    {
+        console.log("Caught in a landslide no escape from reality");
+    }
+    else
+    {
+       console.log("Clap along if you feel happy");
+    }
+}

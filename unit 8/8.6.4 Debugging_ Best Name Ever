@@ -1,0 +1,12 @@
+function main() {
+    let bestName = readLine("What is the best name ever?");
+    
+    while (bestName != "Karel") {
+        console.log("I'm sorry, that is not the best name ever. Try again.");
+        bestName = readLine("What is the best name ever?");
+    }
+    
+    console.log("You're right! I'm glad we're finally on the same page. Karel is the best name ever!");
+}
+
+main();

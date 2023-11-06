@@ -1,0 +1,14 @@
+function main() 
+{
+    let age = readInt("What's your age? ");
+    let teenRange = age>=13 && age<=19;
+    if (teenRange)
+    {
+        console.log("Yes, you are a teenager");
+    }
+    else
+    {
+        console.log("No, you are not a teenager ");
+    }
+}
+main();

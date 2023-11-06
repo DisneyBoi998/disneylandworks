@@ -1,0 +1,12 @@
+function main() {
+    const STARTING_RADIUS = 150;
+    
+    for (let i = 0; i < 10; i++) {
+        let radius = STARTING_RADIUS - 15*i;
+        let circle = new Circle(radius);
+        circle.setPosition(getWidth()/2, getHeight()/2);
+        circle.setColor(Randomizer.nextColor());
+        add(circle);
+    }
+}
+main();

@@ -1,0 +1,36 @@
+function main() 
+{
+    let isPlayerOne = Randomizer.nextBoolean();
+    
+    if (isPlayerOne)
+    {
+        console.log("It's player one's turn");
+    }
+    else
+    {
+        console.log("It's player two's turn");
+    }
+    if (!isPlayerOne)
+    {
+        console.log("It's player one's turn");
+    }
+    else
+    {
+        console.log("It's player two's turn");
+    }
+    if (isPlayerOne)
+    {
+        console.log("It's player one's turn");
+    }
+    else
+    {
+        console.log("It's player two's turn");
+    }
+    
+    //switch turns and print out whose turn it is
+
+    
+    //switch turns again and print out whose turn it is
+
+}
+main();

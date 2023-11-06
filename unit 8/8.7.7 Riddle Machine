@@ -1,0 +1,63 @@
+function main() {
+    riddle1();
+    console.log("****************************");
+    riddle2();
+    console.log("****************************");
+    riddle3();
+    console.log("****************************");
+    console.log("Wowza! You're good at riddles!");
+}
+
+function riddle3() {
+    console.log("Get ready, this is the toughest riddle yet!");
+    console.log("Riddle #3: Where does today come before yesterday?");
+    
+    while (true) {
+        let guess = readLine("What is your guess?");
+        if (guess == "dictionary" || guess == "the dictionary") {
+            console.log("Good guess!");
+            break;
+        }
+        if (guess == "I give up") {
+            console.log("The answer is the dictionary!");
+            break;
+        }
+        console.log("Sorry, that is incorrect. Try again.");
+    }
+}
+
+function riddle2() {
+    console.log("Riddle #2: What gets wet while drying?");
+    
+    while (true) {
+        let guess = readLine("What is your guess?");
+        if (guess == "towel" || guess == "a towel") {
+            console.log("Nicely done!");
+            break;
+        }
+        if (guess == "I give up") {
+            console.log("The answer is a towel!");
+            break;
+        }
+        console.log("Sorry, that is incorrect. Try again.");
+    }
+}
+
+function riddle1() {
+    console.log("Riddle #1: I'm tall when I'm young and short when I'm old. What am I?");
+    
+    while (true) {
+        let guess = readLine("What is your guess? ");
+        if (guess == "candle" || guess == "a candle") {
+            console.log("You got it!");
+            break;
+        }
+        if (guess == "I give up") {
+            console.log("The answer is a candle!");
+            break;
+        }
+        console.log("Sorry, that is not correct. Try again.");
+    }
+}
+
+main();

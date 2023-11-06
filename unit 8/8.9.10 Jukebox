@@ -1,0 +1,49 @@
+function main() {
+	let numQuarters = readInt("How many quarters do you put into the jukebox?");
+	let playlist = "";	
+	showSongs(); //Creating a function for this is optional
+	
+	for (let i = 1; i <= numQuarters; i++) {
+	    let song = readLine("What song would you like to add to the playlist? Enter the song's number: ");
+	    if (song == 1) {
+	        playlist = playlist + i + ". Happy by Pharrell Williams \n" ;
+	    } else if (song == 2) {
+	        playlist = playlist + i + ". My House by Flo Rida \n";
+	    } else if (song == 3) {
+	        playlist = playlist + i + ". Take My Breath Away by Berlin \n";
+	    } else if (song == 4) {
+	        playlist = playlist + i + ". Dancing Queen by Abba \n";
+	    } else if (song == 5) {
+	        playlist = playlist + i + ". I Wanna Hold Your hand by The Beatles \n";
+	    } else if (song == 6) {
+	        playlist = playlist + i + ". We Don't Talk About Bruno from Encanto \n";
+	    } else if (song == 7) {
+	        playlist = playlist + i + ". The Real Slim Shady by Eminem \n";
+	    } else if (song == 8) {
+	        playlist = playlist + i + ". Hold My Hand by Lada Gaga \n";
+	    } else if (song == 9) {
+	        playlist = playlist + i + ". Bye Bye Bye by NSYNC \n";
+	    } else {
+	        playlist = playlist + i + ". Dynamite by BTS \n";
+	    }
+	}
+	console.log("***********************************");
+	console.log("Thank you. The following songs will play: ");
+	console.log(playlist);
+}
+
+function showSongs() {
+    console.log("Song Options: ")
+    console.log("1. Happy by Pharrell Williams");
+    console.log("2. My House by Flo Rida");
+    console.log("3. Take My Breath Away by Berlin");
+    console.log("4. Dancing Queen by Abba");
+    console.log("5. I Wanna Hold Your hand by The Beatles");
+    console.log("6. We Don't Talk About Bruno from Encanto");
+    console.log("7. The Real Slim Shady by Eminem");
+    console.log("8. Hold My Hand by Lada Gaga");
+    console.log("9. Bye Bye Bye by NSYNC");
+    console.log("10. Dynamite by BTS");
+}
+
+main();

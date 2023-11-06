@@ -1,0 +1,12 @@
+(1) I prefer the while loop with break
+statement because it ensures the program gets into the loop, and I don't have to 
+initially think about the condition. Then, I can think through what condition
+will end the loop and add in the break statement. I also like how it only asks
+the user for input once instead of twice. 
+
+(2) I prefer the standard while loop
+because it is more likely to avoid an infinite loop. Although there is a line of 
+repeated code, this approach is actually shorter, so I think it is more efficient. 
+Lastly, including the condition as part of the while loop instead of an 
+if statement makes it simpler.
+
