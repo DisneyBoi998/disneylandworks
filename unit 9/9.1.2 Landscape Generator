@@ -1,0 +1,61 @@
+const HORIZON = getHeight()/2;
+const TIME = readLine("Is it day or night?");
+
+function main() {
+    drawBackground();
+    if (TIME == "night") {
+        drawStars();
+    }
+    if (TIME == "day") {
+        drawFlowers();
+    }
+    drawMountains();
+}
+    
+function drawStars() {
+    for (let i = 0; i < 65; i++) {
+        let star = new WebImage("https://codehs.com/uploads/72bbf31b6bfa4eea0c039a20dcb471c9");
+        star.setSize(20, 20);
+        let x = Randomizer.nextInt(0, getWidth());
+        let y = Randomizer.nextInt(0, HORIZON - star.getHeight());
+        star.setPosition(x, y);
+        add(star);
+    }
+    
+}
+function drawMountains() {
+    for (let i = 0; i < 10; i++) {
+        let mount = new WebImage("https://codehs.com/uploads/8a69d43477d64a4abe670c733319a424");
+        let size = Randomizer.nextInt(100, HORIZON);
+        mount.setSize(size, size);
+        let x = Randomizer.nextInt(0, getWidth() - mount.getWidth());
+        let y = HORIZON - mount.getHeight();
+        mount.setPosition(x, y);
+        add(mount);
+    }
+}
+
+function drawFlowers() {
+    for (let i = 0; i < 50; i++) {
+        let flower = new WebImage("https://codehs.com/uploads/bffd576ba5726b70470ef2a78fd24f3b")
+        flower.setSize(35, 35);
+        flower.setPosition(Randomizer.nextInt(0, getWidth()), Randomizer.nextInt(HORIZON, getHeight()));
+        add(flower);
+    }
+}
+
+function drawBackground() {
+    let ground = new Rectangle(getWidth(), getHeight());
+    ground.setColor("forestgreen");
+    add(ground);
+    
+    let sky = new Rectangle(getWidth(), HORIZON);
+    if (TIME == "day") {
+        sky.setColor("skyblue");
+    } else {
+        sky.setColor("darkblue");
+    }
+    add(sky);
+}
+
+main();

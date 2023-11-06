@@ -1,0 +1,72 @@
+const NUM_STRIPS = 10;
+const WIDTH = getWidth() / NUM_STRIPS;
+const HEIGHT = getHeight();
+const COLOR_CHANGE = 10;
+let r;
+let g;
+let b;
+
+function main() {
+    getColors();
+    drawStrips();
+}
+
+function getColors() {
+    r = readInt("Enter a number between 0 and 255 for the Red value: ");
+    while (r > 255 || r < 0) {
+        console.log("Invalid entry. You must enter a value between 0 and 255.");
+        r = readInt("Enter a number between 0 and 255: ");
+    }
+    
+    g = readInt("Enter a number between 0 and 255 for the Green value: ");
+    while (g > 255 || g < 0) {
+        console.log("Invalid entry. You must enter a value between 0 and 255.");
+        g = readInt("Enter a number between 0 and 255: ");
+    }
+    
+    b = readInt("Enter a number between 0 and 255 for the Blue value: ");
+    while (b > 255 || b < 0) {
+        console.log("Invalid entry. You must enter a value between 0 and 255.");
+        b = readInt("Enter a number between 0 and 255: ");
+    }
+}
+
+function drawStrips() {
+    let x = 0;
+    let y = 0;
+    
+    for (let i = 0; i <= NUM_STRIPS; i++) {
+        console.log("R: " + r + ", G: " + g + ", B: " + b);
+        let strip = new Rectangle(WIDTH, HEIGHT);
+        let color = new Color(r, g, b);
+        strip.setPosition(x, y);
+        strip.setColor(color);
+        add(strip);
+        
+        x = WIDTH * i;
+
+        if (r + COLOR_CHANGE > 255) {
+            r = 255;
+        } else {
+            r = r + COLOR_CHANGE;
+        }
+        
+        if (g + COLOR_CHANGE > 255) {
+            g = 255;
+        } else {
+            g = g + COLOR_CHANGE;
+        }
+        
+        if (b + COLOR_CHANGE > 255) {
+            b = 255;
+        } else {
+            b = b + COLOR_CHANGE;
+        }
+    }
+}
+
+main();
+Close
+Relaunch
+Copy
+Looking for a different class/file? Press Relaunch
