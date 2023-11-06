@@ -1,0 +1,16 @@
+function main() {
+    // Create an empty movie ratings object
+    let movieRatings = {};
+
+    // Use bracket and dot notation to add movie ratings
+    movieRatings["Black Panther"] = 4;
+    movieRatings["Lady Bird"] = 4;
+    movieRatings.Avatar = 5;
+    movieRatings.Transformers = 3;
+
+    // Print movie ratings with bracket and dot notaion
+    console.log("Black Panther: " + movieRatings["Black Panther"]);
+    console.log("Avatar: " + movieRatings.Avatar);
+}
+
+main();
