@@ -1,0 +1,48 @@
+// Two people's list of friends. DO NOT CHANGE THESE LISTS!!
+let friends1 = [
+    'John', 'Richard', 'Andrew', 'Daniel', 
+    'Ernest', 'Will', 'Jesse', 'Oscar', 
+    'William', 'Charles', 'Frank', 'Joseph', 
+    'Thomas', 'Henry', 'Edward', 'Harry', 
+    'Walter', 'Fred', 'Samuel', 'David', 
+    'Louis', 'Joe'];
+
+let friends2 = [
+    'William', 'James', 'George', 'Frank', 
+    'Thomas', 'Henry', 'Robert', 'Arthur', 
+    'Fred', 'Lewis', 'Peter', 'Benjamin', 
+    'Frederick', 'Willie', 'Alfred', 'Roy',
+    'Herbert', 'Albert', 'Samuel', 'Louis'];
+
+function main() {
+    // Print how many friends each person has:
+    console.log("First person has " + friends1.length + " friends.");
+    console.log("Second person has " + friends2.length + " friends.");
+    console.log();
+    
+    // Call your findMutual function
+    // Print how many friends and a list of the mutual friends
+    let mutual = findMutual(friends1, friends2);
+    console.log("There are " + mutual.length + " mutual friends.");
+    console.log("Mutual Friends:");
+    console.log(mutual.join("\n"));
+    
+}
+
+// This function receives two arrays of names and returns an array
+// of names occuring in both arrays
+function findMutual(list1, list2) {
+    let mutual = [];
+
+    // Cycles through each name in list one, checking to see if it
+    // is included in list two
+    list1.forEach(function(name) {
+        if(list2.includes(name)) {
+            mutual.push(name);
+        }
+    });
+
+    return mutual;
+}
+
+main();
