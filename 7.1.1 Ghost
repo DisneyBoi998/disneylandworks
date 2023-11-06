@@ -1,0 +1,63 @@
+// Const variables for main ghost body
+const HEAD_RADIUS = 70;
+const BODY_WIDTH = HEAD_RADIUS * 2;
+const BODY_HEIGHT = 120;
+const NUM_FEET = 3;
+const FOOT_RADIUS = (BODY_WIDTH) / (NUM_FEET * 2);
+const BODY_COLOR = "red";
+
+// Const variables for eyes
+const PUPIL_RADIUS = 8;
+const PUPIL_LEFT_OFFSET = 16;
+const PUPIL_RIGHT_OFFSET = 40;
+const EYE_RADIUS = 20;
+const EYE_OFFSET = 28;
+const EYE_COLOR = "white";
+const PUPIL_COLOR = "blue";
+
+/* This program draws a ghost on the canvas. */
+function main() {
+    body();
+    head();
+    leftEye();
+    rightEye();
+    leftPupil();
+    rightPupil();
+}
+function body() {
+    var rect = new Rectangle(BODY_WIDTH,BODY_HEIGHT);
+    rect.setPosition(100,100);
+    rect.setColor(BODY_COLOR);
+    add(rect);
+}
+function head() {
+    var circ = new Circle(HEAD_RADIUS);
+    circ.setPosition(170,100);
+    circ.setColor(BODY_COLOR);
+    add(circ);
+}
+function leftEye() {
+    var circ = new Circle(EYE_RADIUS);
+    circ.setPosition(170-EYE_OFFSET,100);
+    circ.setColor(EYE_COLOR);
+    add(circ)
+}
+function rightEye() {
+    var circ = new Circle(EYE_RADIUS);
+    circ.setPosition(170+EYE_OFFSET,100);
+    circ.setColor(EYE_COLOR);
+    add(circ)
+}
+function leftPupil(){
+    var circ = new Circle(PUPIL_RADIUS);
+    circ.setPosition(170-PUPIL_LEFT_OFFSET,100);
+    circ.setColor(PUPIL_COLOR);
+    add(circ)
+}
+function rightPupil(){
+    var circ = new Circle(PUPIL_RADIUS);
+    circ.setPosition(170+PUPIL_RIGHT_OFFSET,100);
+    circ.setColor(PUPIL_COLOR);
+    add(circ)
+}
+main();
