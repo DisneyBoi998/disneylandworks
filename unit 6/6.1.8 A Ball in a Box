@@ -1,0 +1,21 @@
+function main() {
+  drawBox();
+  drawBall();
+}
+main();
+
+function drawBox(){
+    let rect = new Rectangle(100, 200);
+    rect.setPosition(150, 200);
+    rect.setColor("blue");
+    rect.debug = true;
+    add(rect);    
+}
+
+function drawBall(){
+    let circle = new Circle(30);
+    circle.setPosition(200, 250);
+    circle.setColor("purple");
+    circle.debug = true;
+    add(circle);
+}
