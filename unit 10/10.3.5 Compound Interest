@@ -1,0 +1,25 @@
+function main() {
+    let principal = 2000;
+    let rate = 0.04;
+    let compound = 12;
+    let time = 5;
+    
+    let futureValue = calculateInterestGrowth(principal, rate, compound, time);
+    
+    console.log("After starting with $" + principal + ", you'll have $" + futureValue);
+}
+
+// This function returns the final invest value with starting principal (p),
+// interest rate (r), time (t), compounded (n) times
+function calculateInterestGrowth(p, r = 0.05, n = 12, t = 10) {
+    let value = p * (1 + r / n) ** (n * t);
+    console.log("P:" + p);
+    console.log("r:" + r);
+    console.log("t:" + t);
+    console.log("n:" + n);
+    console.log();
+    
+    return Math.round(value);
+}
+
+main();

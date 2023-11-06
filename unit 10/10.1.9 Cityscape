@@ -1,0 +1,45 @@
+const POLE_WIDTH = 5;
+const LIGHT_RADIUS = 10;
+const LIGHT_REQUIRED_HEIGHT = 200;
+
+function main() {
+	drawBuilding(30, 200, 45);
+	drawBuilding(100, 300, 75);
+	drawBuilding(50, 150, 175);
+	drawBuilding(100, 350, 225);
+	drawBuilding(50, 250, 325);
+}
+main();
+/* Draws one building with the specified, width, height, and 
+ x- coordinate. */
+function drawBuilding(buildingWidth, buildingHeight, buildingX) {
+    let buildingY = getHeight() - buildingHeight;
+    
+    let building = new Rectangle(buildingWidth, buildingHeight);
+    building.setPosition(buildingX, buildingY);
+    building.debug = false;
+    add(building);
+    
+    if (buildingHeight > LIGHT_REQUIRED_HEIGHT) {
+        let poleHeight = buildingHeight / 6;
+        let poleX = buildingX + buildingWidth/2 - POLE_WIDTH/2;
+        let poleY = buildingY - poleHeight;
+        
+        drawLightPole(poleX, poleY, poleHeight);
+    }
+}
+
+/* Draws one light pole with the specified pole x and y coordinate
+and pole height. */
+function drawLightPole(x, y, height) {
+    let pole = new Rectangle(POLE_WIDTH, height);
+    pole.setPosition(x, y);
+    pole.debug = false;
+    add(pole);
+    
+    let light = new Circle(LIGHT_RADIUS);
+    light.setPosition(x + POLE_WIDTH/2, y);
+    light.setColor("green");
+    light.debug = false;
+    add(light);
+}

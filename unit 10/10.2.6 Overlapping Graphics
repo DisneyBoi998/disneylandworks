@@ -1,0 +1,39 @@
+function main() {
+    drawRect(50, 50, 100, 200, "green");
+    drawRect(60, 70, 150, 30, "yellow");
+    drawRect(160, 100, 30, 30, "purple");
+    drawRect(100, 200, 75, 30, "orange");
+}
+
+// This function draws a rectangle with the parameters. Before adding
+// to the Canvas, it checks to see if its anchor position is overlapping 
+// with any previously drawn shapes.
+function drawRect(x, y, w, h, color) {
+    let rect = new Rectangle(w, h);
+    rect.setPosition(x, y);
+    rect.setColor(color);
+    
+    // Before adding rectangle to Canvas, it checks to see if its
+    // (x, y) anchor position is overlapping with any shape on the canvas
+    if(isGraphicsObject(x, y)) {
+        console.log(color + " rectangle was not drawn.");
+        console.log("Its anchor is overlapping with another rectangle.");
+        console.log();
+    } else {
+        add(rect);
+    } 
+}
+
+// This function returns true if there is already a graphic located
+// at (x, y)
+function isGraphicsObject(x, y) {
+    let obj = getElementAt(x, y);
+    
+    if (obj != null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+main();

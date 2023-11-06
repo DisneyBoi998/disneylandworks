@@ -1,0 +1,25 @@
+const COLOR_COUNT = 7;
+const COLOR_WIDTH = getWidth() / COLOR_COUNT;
+const COLOR_HEIGHT = getHeight();
+
+function main() {
+    addStripe(0, "red");
+    addStripe(COLOR_WIDTH, "orange");
+    addStripe(COLOR_WIDTH * 2, "yellow");
+    addStripe(COLOR_WIDTH * 3, "green");
+    addStripe(COLOR_WIDTH * 4, "blue");
+    addStripe(COLOR_WIDTH * 5, "indigo");
+    addStripe(COLOR_WIDTH * 6, "violet");
+    
+}
+
+// This function adds a colored stripe at the position x
+function addStripe(x, color) {
+    let stripe = new Rectangle(COLOR_WIDTH, COLOR_HEIGHT);
+    stripe.setPosition(x, 0);
+    stripe.setColor(color);
+    stripe.debug = false;
+    add(stripe);
+}
+
+main();

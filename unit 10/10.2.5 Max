@@ -1,0 +1,17 @@
+function main() {
+    let num1 = readInt("First number: ");
+    let num2 = readInt("Second number: ");
+    let maxNum = max(num1, num2);
+    console.log("The max of " + num1 + " and " + num2 + " is: " + maxNum);
+}
+
+// This function returns the max of two numbers
+function max(x, y) {
+    if (x > y) {
+        return x;
+    } else {
+        return y;
+    }
+}
+
+main();

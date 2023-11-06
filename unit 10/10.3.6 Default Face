@@ -1,0 +1,43 @@
+const CENTER_X = getWidth()/2;
+const CENTER_Y = getHeight()/2;
+
+function main() {
+    drawHead();
+    drawEyes(CENTER_X - 20, CENTER_X + 20, CENTER_Y, "blue");
+    drawMouth(40, 10);
+}
+
+// This function draws a circle head, with parameters for x, y
+// radius and color. All have defined default values.
+function drawHead(x = CENTER_X, y = CENTER_Y, radius = 100, color = "yellow") {
+    let head = new Circle(radius);
+    head.setPosition(x, y);
+    head.setColor(color);
+    add(head);
+}
+
+// This function draws two circle eyes, with parameters for  x1,
+// x2, y, radius, and color. Only the radius has a default value.
+function drawEyes(x1, x2, y, color, radius = 10) {
+    let eye1 = new Circle(radius);
+    eye1.setPosition(x1, y);
+    eye1.setColor(color);
+    add(eye1);
+    
+    let eye2 = new Circle(radius);
+    eye2.setPosition(x2, y);
+    eye2.setColor(color);
+    add(eye2);
+}
+
+// This function draws a rectangular mouth, with parameters width,
+// height, x, y, and color. Width and height don't have default
+// values; width is used to define default value of x.
+function drawMouth(width, height, x = CENTER_X - 20, y = CENTER_Y + 50, color = "red") {
+    let mouth = new Rectangle(width, height);
+    mouth.setPosition(x, y);
+    mouth.setColor(color);
+    add(mouth);
+}
+
+main();

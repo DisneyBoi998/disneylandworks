@@ -1,0 +1,10 @@
+function main() {
+    greeting("Irina", "Canada");
+    greeting("Felix");
+}
+
+function greeting(name, country = "the world") {
+    console.log("Hi " + name + "!! How's the weather in " + country +" today?");
+}
+
+main();
