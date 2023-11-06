@@ -1,0 +1,7 @@
+function main() {
+    // Write your code here
+    console.log("My name is Evan Cade")
+    console.log("I like playing video games")
+}
+
+main();
