@@ -1,0 +1,72 @@
+// Dimensions for the scene
+const GROUND_Y = 300;
+const TOWER_HEIGHT = 200;
+const TOWER_WIDTH = 10;
+const PROP_LENGTH = 100;
+const PROP_WIDTH = 15;
+
+let propellers = [];
+
+function main() {
+    // Initialize the ground, sky, and turbines
+    initScene();
+    
+    // Rotate the propellers
+    setTimer(animate, 50);
+}
+
+// This function initializes the ground, sky, and turbines
+function initScene() {
+    // Sky
+    drawRect(getWidth(), GROUND_Y, "#4f90f7", 0, 0);
+    
+    // Ground
+    drawRect(getWidth(), getHeight() - GROUND_Y, "#49751d", 0, GROUND_Y);
+    
+    // Wind turbines
+    createTurbines();
+}
+
+// This function draws a rectangle
+function drawRect(width, height, color, x, y) {
+    let rect = new Rectangle(width, height);
+    rect.setColor(color);
+    rect.setPosition(x, y);
+    add(rect);
+}
+
+// This function organizes the turbine creation
+function createTurbines() {
+    drawTurbine(100, 150, 30);
+    drawTurbine(300, 225, 0);
+    drawTurbine(200, 100, 0);
+
+}
+
+// This function draws a single turbine, adding each propeller to 
+// the global propellers array
+function drawTurbine(x, y, angle) {
+    let tower = new Rectangle(TOWER_WIDTH, TOWER_HEIGHT);
+    tower.setColor("#e6e6e6");
+    tower.setAnchor({vertical: 0, horizontal: 0.5});
+    tower.setPosition(x, y);
+    add(tower);
+
+    let prop = new Rectangle(PROP_LENGTH, PROP_WIDTH);
+    prop.setColor("#e6e6e6");
+    prop.setAnchor({vertical: 0.5, horizontal: 0.5});
+    prop.setRotation(angle, 0);
+    prop.setPosition(x, y);
+    add(prop);
+    propellers.push(prop);
+}
+
+// This function iterates through the propellers array each cycle of
+// the timer, rotating the propeller
+function animate() {
+    for (let prop of propellers) {
+        prop.rotate(10, 0);
+    }
+}
+
+main();
