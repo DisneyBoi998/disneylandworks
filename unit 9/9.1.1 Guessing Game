@@ -1,0 +1,41 @@
+const MIN = 0;
+const MAX = 100;
+
+/* This program will play a simple guessing game.
+ * The user will guess, and the computer should print if
+ * the guess was too high, too low, or correct.
+ */
+
+function main() {
+    console.log("This program plays a guessing game.");
+    console.log("The computer is thinking of a value between " + MIN + " and " + MAX + ".");
+    
+    let numGuesses = 8;
+    let numberToGuess = Randomizer.nextInt(MIN, MAX);
+    
+    while (numGuesses > 0) {
+        let guess = readInt("What is your guess? ");
+
+        if (guess == numberToGuess) {
+            console.log("Correct!");
+            break;
+        } else {
+            if (guess > numberToGuess) {
+                console.log("Your guess was too high.");
+            } else {
+                console.log("Your guess was too low.");
+            }
+            numGuesses--;
+            console.log("Guesses Remaining: " + numGuesses);
+        }
+        if(numGuesses == 0) {
+            console.log("You are out of guesses.");
+            console.log("The number was " + numberToGuess);
+        }
+        console.log("-------------------------------------");
+    }
+	
+    console.log("Game has concluded.");
+}
+
+main();
