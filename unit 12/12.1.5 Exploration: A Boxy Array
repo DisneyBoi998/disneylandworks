@@ -1,0 +1,31 @@
+/* This program adds two graphics objects to the boxes
+array. It then adds the first box graphic to the canvas
+using its index in the array. 
+
+Use the second box's index in the array to add it to the 
+canvas and change its position to (300, 200). */
+
+function main() {
+    let box1 = initBox(100, 75, "red", 100, 100);
+    let box2 = initBox(50, 100, "gold", 100, 300);
+    let boxes = [box1, box2];
+    
+    add(boxes[0]);
+    boxes[0].setColor("indigo");
+
+    // -------> Use the boxes array to now add the second box here:
+    add(boxes[1]);
+
+    // -------> Use the boxes array to change the position of the second box to
+    // (300, 200) here:
+    boxes[1].setPosition(300, 200);
+}
+
+function initBox(width, height, color, x, y) {
+    let rec = new Rectangle(width, height);
+    rec.setColor(color);
+    rec.setPosition(x,y);
+    return rec;
+}
+
+main();
