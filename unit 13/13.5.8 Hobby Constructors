@@ -1,0 +1,100 @@
+function main() {
+    // Create book object
+    let plantBook = new Book();
+
+    // Create plant objects
+    let plant1 = new Plant("Snake Plant", 
+        "Let plant dry out between waterings. Water less frequently during winter.",
+        "Indirect sunlight is best.",
+        "https://codehs.com/uploads/5deb59de5d1edf6bb52cad98909a0168");
+
+    let plant2 = new Plant("Pothos",
+        "Let dry between waterings. Water if leaves droop.",
+        "Bright light but not direct sun. Tolerates low light.",
+        "https://codehs.com/uploads/bf9cc139993e4a1de7d67d6f586d9d49");
+
+    let plant3 = new Plant("Peace Lily",
+        "Keep soil moist but don't overwater. Give the leaves a spritz of water occasionally.",
+        "An east-facing window is best; avoid direct afternoon sunlight.",
+        "https://codehs.com/uploads/2333e1ea62810ba4025969d29c83548b");
+
+    // Add plant objects to the book object as properties
+    plantBook.add(plant1);
+    plantBook.add(plant2);
+    plantBook.add(plant3);
+
+    // Print all of the plants in the book
+    plantBook.printItems();
+
+    // Search for all plant entries in book that contain 'pothos'
+    plantBook.find("Pothos");
+
+    // Display one of the plants on the canvas
+    plantBook["Pothos"].display();
+}
+
+// This function creates a new book object
+function Book() {
+    // This method adds a new item object with its name as the key
+    this.add = function(item) {
+        this[item.name] = item;
+    };
+
+    // This method prints all of the properties in the book object
+    this.printItems = function() {
+        console.log("=== All Items in Book ===");
+        for (let key in this) {
+            // Only print properties (ie not methods)
+            if(typeof this[key] != "function") {
+                this[key].print();
+                console.log();
+            }
+        }
+    }
+
+    // This method searches for properties that include a keyword
+    this.find = function(search) {
+        search = search.toLowerCase();
+
+        console.log("=== Search Results for '" + search + "' ===");
+        for (let key in this) {
+            // Only search properties
+            if(typeof this[key] != "function") {
+                if (this[key].name.toLowerCase().includes(search)) {
+                    this[key].print();
+                }
+            }
+        }
+        console.log();
+    }
+}
+
+// This constructor creates a plant object
+function Plant(name, water, sun, image) {
+    // Properties of plant
+    this.name = name;
+    this["Water Requirements"] = water;
+    this["Sun Requirements"] = sun;
+
+    // This method prints out all of the properties of the plant object
+    this.print = function() {
+        for (let key in this) {
+            if (typeof this[key] != "function") {
+                if (key == "name") {
+                    console.log(this[key]); 
+                } else {    
+                    console.log("* " + key + ": " + this[key]);
+                }
+            }
+        }
+    };
+
+    // This method displays the photo of the plant on the canvas
+    this.display = function() {
+        let img = new WebImage(image);
+        img.setPosition(10, 10);
+        add(img);
+    };
+}
+
+main();
