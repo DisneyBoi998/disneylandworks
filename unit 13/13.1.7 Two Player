@@ -1,0 +1,22 @@
+function main() {
+    // Create two distinct player objects
+    let player1 = {
+        name: "tyrone",
+        age: 16,
+        health: 100,
+        ability: "run really fast"
+    };
+
+    let player2 = {
+        name: "gina",
+        age: 17,
+        health: 95,
+        ability: "always win thumb wars"
+    };
+
+    // Print out statements using the player properties
+    console.log("Hi, I'm " + player1.name + ". I'm " + player1.age + " and have " + player1.health + " health");
+    console.log("Help " + player2.name + ", we need your ability to " + player2.ability);
+}
+
+main();
