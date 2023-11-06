@@ -1,0 +1,32 @@
+function start() {
+    // Write your code here
+    upToBall();
+    getBall();
+    goBack();
+}
+
+function upToBall(){
+    turnLeft();
+    move();
+    move();
+    move();
+    move();
+}
+function getBall(){
+    turnRight();
+    move();
+    move();
+    takeBall();
+}
+function goBack(){
+    turnAround();
+    move();
+    move();
+    turnLeft();
+    move();
+    move();
+    move();
+    move();
+    turnLeft();
+    putBall();
+}
