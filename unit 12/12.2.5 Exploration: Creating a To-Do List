@@ -1,0 +1,36 @@
+/* This program creates a blank to-do list and uses a 
+while loop to push user inputted tasks onto the list.
+*/
+
+function main() {
+    // Create the empty array and run the addToList function to add
+    // items to the array.
+    let toDoList = [];
+    addToList(toDoList);
+    
+    console.log();
+    console.log(toDoList);
+
+    removeAndPrintLast(toDoList);
+}
+
+// This function adds items to the array
+function addToList(list) {
+    // This loop will repeat until 'done' is entered
+    while (true) {
+        let item = readLine("Enter task (type 'done' to finish): ");
+        if (item != "done") {
+            // This will add the item to the list
+            list.push(item);
+        } else {
+            break;
+        }
+    }
+}
+
+// This function removes and prints the last item of the array
+function removeAndPrintLast(list) {
+    console.log(list.pop());
+}
+
+main();
