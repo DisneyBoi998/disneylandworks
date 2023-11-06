@@ -1,0 +1,33 @@
+/* This program uses lines to draw an X-Y coordinate system
+and plot a line. Do you remember the order of the inputs in
+the Line() function? */
+
+function main() {
+    drawDiagonal();
+    drawXAxis();
+    drawYAxis();
+}
+
+function drawDiagonal() {
+    let diag = new Line(0, 400, 400, 0);
+    diag.setPosition(0,50);
+    diag.setEndpoint(400,250);
+    diag.setLineWidth(2);
+    diag.setColor("teal");
+    add(diag);
+}
+
+function drawXAxis() {
+    let line = new Line(0, 200, 400, 200);
+    line.setLineWidth(5);
+    add(line);
+}
+
+function drawYAxis() {
+    let line = new Line(200, 0, 200, 400);
+    line.setLineWidth(5);
+    add(line);
+}
+
+    
+main();

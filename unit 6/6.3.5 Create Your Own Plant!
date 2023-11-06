@@ -1,0 +1,43 @@
+const STEM_WIDTH = getWidth()/2
+const STEM_HEIGHT = getHeight()/2
+const FLOWER_WIDTH = getWidth()/2
+const FLOWER_HEIGHT = getHeight()/2
+
+function main() 
+{
+    makeStem();
+    makeFlower();
+    makeFlowerInside();
+    makePetal();
+    
+}
+function makeStem()
+{
+    let line = new Line(STEM_WIDTH, getHeight(), STEM_WIDTH, 300)
+    line.setColor("green");
+    add(line);
+}
+function makeFlowerInside()
+{
+    let circle = new Circle(70);
+    circle.debug = true;
+    circle.setPosition(FLOWER_WIDTH, FLOWER_HEIGHT);
+    circle.setColor("yellow");
+    add(circle);
+}
+function makeFlower()
+{
+     let circle = new Circle(110);
+    circle.debug = true;
+    circle.setPosition(FLOWER_WIDTH, FLOWER_HEIGHT);
+    circle.setColor("purple");
+    add(circle);
+}
+function makePetal()
+{
+    let rect = new Rectangle(60,10)
+    rect.setPosition(STEM_WIDTH, 400)
+    rect.setColor("green");
+    add(rect);
+}
+main();

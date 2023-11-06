@@ -1,0 +1,26 @@
+function main() 
+{
+    addClockFace();
+    addMinuteHand();
+    addHourHand();
+;}
+main();
+function addClockFace()
+{
+    let clock = new WebImage("https://codehs.com/uploads/ebf7e398375cde10b6937dcabfec3eff");
+    clock.setPosition(0,0);
+    clock.setSize(200,200);
+    add(clock);
+}
+function addMinuteHand()
+{
+    let line = new Line(100, 100, 150,100);
+    line.setLineWidth(3);
+    add(line);
+}
+function addHourHand()
+{
+    let line = new Line(100, 100, 50, 75);
+    line.setLineWidth(4);
+    add(line);
+}

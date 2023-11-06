@@ -1,0 +1,63 @@
+const COLOR_WIDTH = getWidth()/7;
+const COLOR_HEIGHT = getHeight();
+
+function main() 
+{
+    makeRed();
+    makeOrange();
+    makeYellow();
+    makeGreen();
+    makeBlue();
+    makeIndigo();
+    makeViolet();
+}
+function makeRed()
+{
+    let rect = new Rectangle(COLOR_WIDTH, COLOR_HEIGHT);
+    rect.setPosition(0,0);
+    rect.setColor("red");
+    add(rect);
+}
+function makeOrange()
+{
+    let rect = new Rectangle(COLOR_WIDTH, COLOR_HEIGHT);
+    rect.setPosition(0 + COLOR_WIDTH,0 );
+    rect.setColor("orange");
+    add(rect);
+}
+function makeYellow()
+{
+    let rect = new Rectangle(COLOR_WIDTH, COLOR_HEIGHT);
+    rect.setPosition(COLOR_WIDTH + COLOR_WIDTH,0);
+    rect.setColor("yellow");
+    add(rect);
+}
+function makeGreen()
+{
+    let rect = new Rectangle(COLOR_WIDTH, COLOR_HEIGHT);
+    rect.setPosition(COLOR_WIDTH + COLOR_WIDTH + COLOR_WIDTH,0);
+    rect.setColor("green");
+    add(rect);
+}
+function makeBlue()
+{
+    let rect = new Rectangle(COLOR_WIDTH, COLOR_HEIGHT);
+    rect.setPosition(COLOR_WIDTH + COLOR_WIDTH + COLOR_WIDTH + COLOR_WIDTH,0);
+    rect.setColor("blue");
+    add(rect);
+}
+function makeIndigo()
+{
+    let rect = new Rectangle(COLOR_WIDTH, COLOR_HEIGHT);
+    rect.setPosition(COLOR_WIDTH + COLOR_WIDTH + COLOR_WIDTH + COLOR_WIDTH + COLOR_WIDTH,0);
+    rect.setColor("indigo");
+    add(rect);
+}
+function makeViolet()
+{
+    let rect = new Rectangle(COLOR_WIDTH, COLOR_HEIGHT);
+    rect.setPosition(COLOR_WIDTH + COLOR_WIDTH + COLOR_WIDTH + COLOR_WIDTH + COLOR_WIDTH + COLOR_WIDTH,0);
+    rect.setColor("violet");
+    add(rect);
+}
+main();
