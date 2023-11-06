@@ -1,0 +1,78 @@
+/* In this program, we include methods in our pet object. Think of 
+methods as the abilities that an object can perform. They
+are similar to standalone functions, but attached to each object.
+*/
+
+function main() {
+    // Create a new pet object and save into variable
+    let dog = initPet("Karel", 3, "dog", "brown");
+    // Call the dog's speak method
+    dog.speak();
+
+    // Change the pet's name
+    dog.changeName("Spike");
+    dog.speak();
+
+    // Call the dog's howOld method
+    dog.howOld();
+
+    // -------> After completing the happyBirthday method,
+    // call it here with the dog object:
+    dog.happyBirthday();
+    
+    // Call the dog's howOld method
+    dog.howOld();
+
+    // Have the pet tell a joke
+    dog.tellJoke();
+}
+
+// This function initializes and returns a pet object
+function initPet(name, age, type, color) {
+    let pet = {
+        name: name,
+        age: age,
+        type: type,
+        color: color,
+        
+        // -------> Complete this method so that when it is called,
+        // the pet's age increases by 1
+        happyBirthday: function() {
+            this.age += 1;
+        },
+
+        // This method changes the name of the pet 
+        changeName: function(newName) {
+            this.name = newName;
+        },
+
+        // This method has the pet say their name, color, and type
+        speak: function() {
+            console.log("Hi! My name is " + this.name + " and I am a " + this.color + " " + this.type + ".");
+            console.log();
+        },
+
+        // This method has the pet say a random joke
+        tellJoke: function() {
+            let choice = Randomizer.nextInt(0, 2);
+            let jokes = [
+                "Q: How can you tell if a tree is a dogwood tree?\nA: By its bark.",
+                "Q: What did the ocean say to the beach?\nA: Nothing, it just waved.",
+                "Q: Where do fruits go on vacation?\nA: Pear-is!" 
+            ];
+            
+            console.log(jokes[choice]);
+            console.log();
+        },
+
+        // This method has the pet say their age
+        howOld: function() {
+            console.log("I am " + this.age + " years old.");
+            console.log();
+        }
+
+    }
+    return pet;
+}
+
+main();
