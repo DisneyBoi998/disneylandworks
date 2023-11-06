@@ -1,0 +1,44 @@
+const XPOS = getWidth() / 2;
+const YPOS = getHeight() / 1.5;
+let minRadius;
+let maxRadius;
+
+function main() {
+    let numBalloons = readInt("How many balloons? ");
+    minRadius = readInt("What's the minimum radius? ");
+    maxRadius = readInt("What's the maximum radius? ");
+    if (maxRadius > 40) {
+        createBalloons(numBalloons, minRadius);
+    } else {
+        createBalloons(numBalloons, minRadius, maxRadius);
+    }
+}
+
+function createBalloons(num, min, max = 40) {
+    maxRadius = max;
+    for (let i = 0; i < num; i++) {
+        let x = Randomizer.nextInt(max, getWidth() - max);
+        let y = Randomizer.nextInt(max, getHeight() / 2 - max);
+
+        drawString(x, y);
+        drawBalloon(x, y);
+    }
+}
+
+function drawString(x, y) {
+    let line = new Line(XPOS, YPOS, x, y);
+    line.setColor("black");
+    add(line);
+}
+
+function drawBalloon(x, y) {
+    let radius = Randomizer.nextInt(minRadius, maxRadius);
+    let color = Randomizer.nextColor();
+
+    let balloon = new Circle(radius);
+    balloon.setPosition(x, y);
+    balloon.setColor(color);
+    add(balloon);
+}
+
+main();
