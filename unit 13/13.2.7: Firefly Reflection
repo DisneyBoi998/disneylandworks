@@ -1,0 +1,17 @@
+1. What is the benefit of having a separate JS object for each firefly? What does it enable you to do that would otherwise be very difficult?
+Creating an object for each firefly allows the program to easily keep track of all of the information regarding each firefly. This enables you to have a different position and velocity for each firefly.
+
+
+
+2. What information is the `.graphic` property storing in each firefly object? Why do you need it? 
+The graphic property is storing the actual canvas graphic for the firefly. This keeps the graphic attached to the firefly object and allows easy access to it in order to update it.
+
+
+
+3. What is the purpose of the `x`, `y`, `vx`, and `vy` properties of the firefly object and the `setPosition(x, y)` and `graphic.move(vx, vy)` functions? What roles do each (the properties and the functions) have?
+The properties are just static values that are unique to each firefly object. They allow you to keep track of and access the information easily. On the other hand, the functions relate specifically to the canvas graphic. The properties make it easy to manage each firefly, whereas the functions are what actually move the circle graphic.
+
+
+
+4. What is the role of the `fireflies` array in the program? Or in other words, why have an array that stores all of the fireflies?
+The fireflies array creates an easy way to keep track of lots of fireflies. You can now iterate through the array to access each firefly instead of needing a different variable for each firefly object and having code that updates each variable. That would be very ineffective!!
