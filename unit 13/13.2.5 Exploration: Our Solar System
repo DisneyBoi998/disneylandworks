@@ -1,0 +1,80 @@
+/* This program uses planet objects to create a simulation of planets
+orbiting around the sun. Each planet object contains all of its own
+property information, from the position, speed, orbit, etc.
+*/
+
+// Global planets array
+let planets = [];
+
+function main() {
+    // Initialize the space and sun background
+    initBackground();
+
+    // Create the planet objects
+    let earth = initPlanet(getWidth() / 2 + 150, getHeight() / 2, 10, 150, 0.05, "#6b93d6");
+    let venus = initPlanet(getWidth() / 2 + 100, getHeight() / 2, 5, 100, 0.1, "#c18f17");
+    let mercury = initPlanet(getWidth() / 2 + 75, getHeight() / 2, 3, 75, 0.4, "#ad8d54");
+    planets = [earth, venus, mercury];
+
+    // Set timer for the orbit
+    setTimer(animate, 50);
+}
+
+// This function creates and returns a planet object
+function initPlanet(x, y, radius, orbit, v, color) {
+    let planet = {
+        x: x,
+        y: y,
+        v: v,
+        angle: 0,
+        orbit: orbit,
+        radius: radius,
+        color: color
+    }
+
+    // Creates the graphic circle
+    let circ = new Circle(radius);
+    circ.setPosition(x, y);
+    circ.setColor(color);
+    add(circ)
+
+    // -------> Add the line of code that adds the circle graphic
+    // to a "graphic" property in the planet object:
+    planet.graphic = circ;
+
+    return planet;
+}
+
+// This function animates the orbit of the planets
+function animate(){
+    for (let planet of planets) {
+        // Calculate the next x and y position of the orbit
+        calculateNext(planet);
+
+        // Set the planet in the next position
+        planet.graphic.setPosition(planet.x, planet.y);
+        
+        // Update the next angle
+        planet.angle += planet.v;
+    }
+}
+
+// This function calculates the next x, y location of the planet in the orbit
+function calculateNext(planet) {
+    planet.x = getWidth() / 2 + Math.cos(planet.angle) * planet.orbit;
+    planet.y = getHeight() / 2 + Math.sin(planet.angle) * planet.orbit;
+}
+
+// Initializes the solar system background of space and the sun
+function initBackground() {
+    let space = new Rectangle(getWidth(), getHeight());
+    space.setPosition(0, 0);
+    add(space);
+
+    let sun = new Circle(25);
+    sun.setColor("yellow");
+    sun.setPosition(getWidth() / 2, getHeight() / 2);
+    add(sun);
+}
+
+main();
