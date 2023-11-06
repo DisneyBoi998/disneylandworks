@@ -1,0 +1,20 @@
+/* This program sums each individual test score in the
+array and uses the length property to calculate the 
+average. 
+*/
+
+function main() {
+	let testScores = [80, 88, 95, 98, 75, 92];
+	let sum = 0;
+	
+	// Sum the individual test scores
+	for (let score of testScores) {
+		sum += score;
+	}
+	
+	// Use the length property to calculate the average
+	let average = sum / testScores.length;
+	console.log(average);
+}
+
+main();
