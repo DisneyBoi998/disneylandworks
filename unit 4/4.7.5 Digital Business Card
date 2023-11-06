@@ -1,0 +1,15 @@
+function main() {
+    // Call your function here
+    printBusinessCard();
+}
+
+// Define your function here
+function printBusinessCard() {
+    console.log("Joe Momma");
+    console.log("Im cool bro");
+    console.log("ahhhhhhhhh@gmail.com");
+    console.log(" ");
+    console.log("Im literally the best");
+}
+
+main();

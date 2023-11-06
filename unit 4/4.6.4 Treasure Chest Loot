@@ -1,0 +1,6 @@
+function main() {
+	// Write your code here
+	let treasure = Randomizer.nextInt(5, 20);
+	console.log("You open the chest and found " + treasure + " rubies");
+}
+main();

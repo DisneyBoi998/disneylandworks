@@ -1,0 +1,9 @@
+//Declare a const here to represent the cost of a tshirt
+const COST_OF_SHIRT= 20
+function main() {
+	Write your code here
+	let shirt= readFloat("How many shirts? ");
+	console.log("the result is "+ "$"+ COST_OF_SHIRT*shirt)
+
+}
+main();

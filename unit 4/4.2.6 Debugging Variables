@@ -1,0 +1,9 @@
+function main() {
+    let timeSpent = 60;
+    let draftStatus = "done";
+    let name = "Avani";
+    console.log("Hi " + name + "!");
+    console.log("The first draft is " + draftStatus + ".");
+    console.log("It took "+ timeSpent +" minutes to complete.");
+}
+main();

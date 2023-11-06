@@ -1,0 +1,9 @@
+function main() {
+	// Write your code here
+	var miles = readInt("How many miles did you run ");
+	var minutes = readInt("How many minutes did it take you? ");
+	var hours = minutes/60;
+	var speed = miles/hours;
+	console.log("speed in mph:" + speed);
+}
+main();

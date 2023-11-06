@@ -1,0 +1,20 @@
+function main() {
+    // Call your functions here
+    printKarel();
+    printBall();
+}
+
+// Define your functions here
+function printKarel() {
+console.log("   ()_____");
+console.log("  //     O)___");
+console.log(" //           )");
+console.log("//      _____/");
+}
+function printBall() {
+console.log(" _____");
+console.log("|     |");
+console.log("|     |");
+console.log(" _____");
+}
+main();

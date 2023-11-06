@@ -1,0 +1,12 @@
+function main(){
+let partOfDay= "In the morning";
+let time= 10;
+console.log(partOfDay + ", I eat breakfast at "+ time + ".");
+partOfDay= "In the afternoon";
+time= 3;
+console.log(partOfDay + ", I eat lunch at "+ time + ".");
+partOfDay= "In the evening";
+time= 8;
+console.log(partOfDay + ", I eat dinner at " + time + ".");
+}
+main();

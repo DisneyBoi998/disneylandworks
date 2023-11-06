@@ -1,0 +1,17 @@
+function main() {
+    // Create your fish here:
+    
+    console.log("Look, a fish!");
+    console.log("><(((('>");
+    
+    
+    // Create your own animal here!
+    
+ 
+    // If you'd like, create more animals here!
+    console.log(" ");
+    console.log("Look, a line!");
+   console.log("'___'");
+}
+
+main();
