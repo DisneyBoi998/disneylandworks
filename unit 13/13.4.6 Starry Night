@@ -1,0 +1,36 @@
+function main() {
+    let artwork = {
+        title: "Starry Night",
+        artist: "Vincent van Gogh",
+        year: 1889,
+        medium: "Oil on canvas",
+        currentLocation: "New York City, NY",
+    
+        updateLocation: function(newLocation) {
+            this.currentLocation = newLocation;
+        }
+    }
+
+    printAllKeys(artwork);
+    console.log();
+    printProperties(artwork);
+}
+
+// This function will print all of the keys in the parameter object
+function printAllKeys(obj) {
+    for (let key in obj) {
+        console.log(key);
+    }
+}
+
+// This function will print only the properties (key: value) of the
+// parameter object
+function printProperties(obj) {
+    for (let key in obj) {
+        if (typeof obj[key] != "function") {
+            console.log(key + ": " + obj[key]);
+        }
+    }
+}
+
+main();
