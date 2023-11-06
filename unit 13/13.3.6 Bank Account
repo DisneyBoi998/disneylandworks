@@ -1,0 +1,63 @@
+function main() {
+    // Create a savings account
+    let savings = createAccount("Camille", "Vasquez", 1000);
+    
+    // Print initial balance
+    savings.printBalance();
+    
+    // Withdraw money and print new balance
+    savings.withdraw(300);
+    savings.printBalance();
+
+    // Try to withdraw more than what is in the account
+    savings.withdraw(900);
+    savings.printBalance();
+
+    // Deposit money and print new balance
+    savings.deposit(1000);
+    savings.printBalance();
+}
+
+// This function initiates an account with a name and initial deposit
+function createAccount(firstName, lastName, initial) {
+    // Create the account object
+    let account = {
+        firstName: firstName,
+        lastName: lastName,
+        balance: initial,
+        interest: 0.01,
+        
+        // This method prints the full name of the account holder
+        printName: function() {
+            console.log(this.firstName + " " + this.lastName);
+            console.log();
+        },
+
+        // This method prints the balance in the account
+        printBalance: function() {
+            console.log("$"+this.balance);
+            console.log();
+        },
+
+        // This method withdraws money from the account and returns it
+        withdraw: function(amount) {
+            // Only withdraws money if there is enough in the account
+            if (amount <= this.balance) {
+                this.balance -= amount;
+            } else {
+                console.log("You do not have enough in your account to make that withdrawal.");
+                console.log();
+            }
+        },
+
+        // This method deposits money into the account
+        deposit: function(amount) {
+            this.balance += amount;
+        }
+    }
+
+    return account;
+
+}
+
+main();
