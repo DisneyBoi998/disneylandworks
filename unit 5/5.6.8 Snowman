@@ -1,0 +1,18 @@
+const BOTTOM_RADIUS = 100;
+const MID_RADIUS = 60;
+const TOP_RADIUS = 30;
+
+function start(){
+    var circle= new Circle(TOP_RADIUS);
+    circle.setColor(Color.gray);
+    circle.setPosition(getWidth()/2, getHeight() - 350);
+    add(circle);
+    var circle= new Circle(MID_RADIUS);
+    circle.setColor(Color.gray);
+    circle.setPosition(getWidth()/2, getHeight() - 260);
+    add(circle);
+    var circle= new Circle(BOTTOM_RADIUS);
+    circle.setColor(Color.gray);
+    circle.setPosition(getWidth()/2, getHeight() - 100);
+    add(circle);
+}
