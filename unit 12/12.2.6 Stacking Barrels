@@ -1,0 +1,26 @@
+function main() {
+    // Create an empty array
+    let stack = [];
+    
+    // Add items to the array and print out array
+    addToStack(stack, "red");
+    addToStack(stack, "blue");
+    addToStack(stack, "green");
+    console.log(stack);
+
+    // Remove top item in the stack and print out
+    let top = removeTopOfStack(stack);
+    console.log(top);
+}
+
+// This function adds an item to an array
+function addToStack(stack, item) {
+    stack.push(item);
+}
+
+// This function removes the top item of an array
+function removeTopOfStack(stack) {
+    return stack.pop();
+}
+
+main();
