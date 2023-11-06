@@ -1,0 +1,9 @@
+function main() {
+	let favoriteSites = ["www.wikipedia.org", "www.codehs.com", "www.youtube.com", "www.google.com"];
+	console.log(favoriteSites[0]);
+	
+	favoriteSites[0] = "codehs.com";
+	console.log(favoriteSites[0]);
+}
+
+main();
