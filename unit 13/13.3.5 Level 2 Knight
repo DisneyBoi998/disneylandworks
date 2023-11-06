@@ -1,0 +1,140 @@
+const STAND = "https://codehs.com/uploads/2031d03f4a3708ae99c1e3392d656c92";
+const RIGHT = "https://codehs.com/uploads/4423f3e26b3b675e4cdfb88051c7607f";
+const LEFT = "https://codehs.com/uploads/d2f8bf0d1382d6cf49d80eb918c77a5c";
+const IMAGE_URLS = [STAND, RIGHT, LEFT];
+
+const CENTER_X = getWidth() / 2;
+const CENTER_Y = getHeight() / 2;
+const GROUND_Y = CENTER_Y * 1.2;
+
+let player1;
+
+function main() {
+    // Initialize sky and ground background
+    initBackground("#b6e8fa", CENTER_X * 2, GROUND_Y, 0, 0);
+    initBackground("#7eb840", CENTER_X * 2, GROUND_Y, 0, GROUND_Y);
+
+    // Initialize player 1 character
+    player1 = initCharacter(IMAGE_URLS, CENTER_X, GROUND_Y);
+
+    // Set up keyboard event listener with callback function
+    keyDownMethod(keyListener);
+}
+
+// This function is called when keyboard keys are pressed. It currently
+// moves the character forward and backward (and changes its image), and
+// has a few console prints.
+function keyListener(e) {
+    if (e.key == "ArrowUp") {
+        player1.graphic.setImage(player1.images[0]);
+    }
+
+	if (e.key == "ArrowRight") {
+		player1.graphic.setImage(player1.images[1]);
+        player1.graphic.move(player1.vx, 0);
+        player1.x += player1.vx;
+	}
+	
+	if (e.key == "ArrowLeft") {
+        player1.graphic.setImage(player1.images[2]);
+		player1.graphic.move(-player1.vx, 0);
+        player1.x += -player1.vx;
+    }
+
+    if (e.key == "g") {
+        player1.greet();
+    }
+
+    if (e.key == "l") {
+        player1.currentLevel();
+    }
+
+    if (e.key == "i") {
+       player1.printInventory();
+    }
+
+    if (e.key == "d") {
+        let item = readLine("What item do you want to drop? ");
+        console.log();
+        player1.dropItem(item);
+    }
+
+}
+
+// This function adds and initializes a character webimage
+function initCharacter(images, x, y) {
+    // Ask the user for some basic information
+    let name = readLine("What is your name? ");
+    let town = readLine("What town are you from? ");
+    let type = readLine("What type of character are you? ");
+
+    console.log();
+
+    // Set up starting position for the image
+    let startX = x - 85;
+    let startY = y - 165;
+
+    // Create image graphic with the first idle image
+    let graphic = new WebImage(images[0]);
+    graphic.setPosition(startX, startY);
+    add(graphic);
+    
+    // Create the character object with initial properties
+    let character = {
+        name: name,
+        type: type,
+        origin: town,
+        health: 100,
+        level: 1,
+        inventory: ["crown", "sword", "shoes"],
+        images: images,
+        x: startX,
+        y: startY,
+        vx: 10,
+        graphic: graphic,
+
+        // This method prints name and town of origin
+        greet: function() {
+            console.log("Hi, I am " + this.name + ", of " + this.origin + ".");
+            console.log();
+        },
+
+        // This method prints the level and type of character
+        currentLevel: function() {
+            console.log("I am a level " + this.level + " " + this.type + ".");
+            console.log();
+        },
+
+        // This method prints the current iventory
+        printInventory: function() {
+            console.log("Inventory:");
+            for (let item of this.inventory) {
+                console.log(item);
+            }
+            console.log();
+        },
+
+        // This method allows the player to drop an item from the inventory
+        dropItem: function(item) {
+            if (this.inventory.includes(item)) {
+                let index = this.inventory.indexOf(item);
+                this.inventory.splice(index, 1);
+            } else {
+                console.log("That item is not in the inventory.");
+                console.log();
+            }
+        }
+    }
+
+    return character;
+}
+
+// This function adds and initializes a rectangle
+function initBackground(color, w, h, x, y) {
+    let rec = new Rectangle(w, h);
+    rec.setColor(color);
+    rec.setPosition(x, y);
+    add(rec);
+}
+
+main();
