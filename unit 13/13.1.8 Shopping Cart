@@ -1,0 +1,52 @@
+const SALES_TAX = 0.029;
+let shoppingCart = [];
+
+function main() {
+    // Call addItem function to create object and add to shopping cart array
+    addItem("How to Train Your Dragon", "Movie", 15);
+    addItem("Basketball", "Sports", 30);
+    addItem("Colored Pencils", "Art", 42);
+
+    // Print all items in shopping cart
+    printItems(shoppingCart);
+    console.log();
+
+    // Calculate and print total price
+    let total = calculateTotal(shoppingCart);
+    console.log("Total cost: $" + total);
+}
+
+// This function receives an item's name, category, and price, and
+// creates an object. It then adds the object to the shopping cart
+function addItem(name, category, price) {
+    let item = {
+        name: name,
+        category: category,
+        price: price
+    }
+
+    // Add item to shopping cart array
+    shoppingCart.push(item);
+}
+
+// Print the name of every item in the shopping cart
+function printItems() {
+    shoppingCart.forEach(function(item) {
+        console.log(item.name);
+    });
+}
+
+// Calculate and return the total cost the items in the shopping cart
+function calculateTotal() {
+    let sum = 0;
+    
+    for (let item of shoppingCart) {
+        sum += item.price;
+    }
+
+    // Add the sales tax
+    sum = sum + sum * SALES_TAX;
+    return sum;
+}
+
+main();
