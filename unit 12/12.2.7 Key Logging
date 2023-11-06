@@ -1,0 +1,78 @@
+const KEY_SIZE = 50;
+const CENTER_X = getWidth() / 2;
+const CENTER_Y = getHeight() / 2;
+let left, right, up, down;
+let keysPressed = [];
+
+function main() {
+    // Sets up display
+    initDisplay();
+
+    // Logs the arrow key pressed
+    keyDownMethod(logKey);
+    
+    // Resets display to default
+    keyUpMethod(initDisplay);
+}
+
+function logKey(e) {
+	if (e.key == "ArrowLeft") {
+		left.setColor("#a2f218");
+        keysPressed.push(e.key);
+	}
+
+	if (e.key == "ArrowRight") {
+		right.setColor("#a2f218");
+        keysPressed.push(e.key);
+	}
+
+	if (e.key == "ArrowUp") {
+		up.setColor("#a2f218");
+        keysPressed.push(e.key);
+	}
+
+	if (e.key == "ArrowDown") {
+		down.setColor("#a2f218");
+        keysPressed.push(e.key);
+	}
+
+    // Prints out all arrow keys pressed
+    if (e.key == "p") {
+        console.log(keysPressed);
+    }
+
+    // Removes and prints out last arrow key pressed
+    if (e.key == "l") {
+        console.log(keysPressed.pop());
+    }
+
+    // Resets keysPressed array
+    if (e.key == "r") {
+        keysPressed = [];
+    }
+}
+
+// This fuction sets up the default display of the arrow keys
+function initDisplay() {
+    left = new Rectangle(KEY_SIZE, KEY_SIZE);
+    left.setPosition(CENTER_X - 1.5 * KEY_SIZE, CENTER_Y);
+    left.setColor("#fcc603");
+    add(left);
+
+    right = new Rectangle(KEY_SIZE, KEY_SIZE);
+    right.setPosition(CENTER_X + 0.5 * KEY_SIZE, CENTER_Y);
+    right.setColor("#fcc603");
+    add(right);
+
+    up = new Rectangle(KEY_SIZE, KEY_SIZE);
+    up.setPosition(CENTER_X - KEY_SIZE / 2, CENTER_Y - KEY_SIZE);
+    up.setColor("#fcc603");
+    add(up);
+
+    down = new Rectangle(KEY_SIZE, KEY_SIZE);
+    down.setPosition(CENTER_X - KEY_SIZE / 2, CENTER_Y + KEY_SIZE);
+    down.setColor("#fcc603");
+    add(down);
+}
+
+main();
