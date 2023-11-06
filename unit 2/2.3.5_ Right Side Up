@@ -1,0 +1,11 @@
+function main() {
+	// Write your code here
+    if(facingWest()) {
+        turnAround();
+    }else{
+        turnLeft();
+        
+    
+    }
+}
+main();

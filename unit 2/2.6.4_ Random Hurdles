@@ -1,0 +1,77 @@
+function main() {
+	// Write your code here
+    for(let i=0; i<13; i++){
+        while(frontIsClear()) {
+            move();
+        }
+        if(frontIsBlocked()){
+            jumpHurdle();
+        }
+    }
+}
+main();
+
+
+function jumpHurdle() {
+    turnLeft();
+    move();
+    turnRight();
+     if(frontIsBlocked()){
+        turnRight();
+        move();
+        turnLeft();
+    }else{
+        move();
+        turnRight();
+        move();
+        turnLeft();   
+    }
+    
+}
+
+
+
+//     while (frontIsClear()) {
+//         move();
+//     }
+//     if(frontIsBlocked()){
+//          jumpHurdle();
+//     }
+//     for(let i=0; i<14; i++){
+//         move();
+//     }
+  
+
+
+// //works for world one----
+// 	if(frontIsBlocked()){
+//          jumpHurdle();
+//     }
+// 	while (frontIsClear()) {
+//         move();
+//     }
+//     if(frontIsBlocked()){
+//         jumpHurdle();
+//     }
+//     while (frontIsClear()) {
+//         move();
+//     }
+//     if(frontIsBlocked()){
+//         jumpHurdle();
+//     }
+//     while (frontIsClear()) {
+//         move();
+//     }
+//     if(frontIsBlocked()){
+//         jumpHurdle();
+//     }
+//     while (frontIsClear()) {
+//         move();
+//     }
+//     if(frontIsBlocked()){
+//         jumpHurdle();
+//     }
+//     while (frontIsClear()) {
+//         move();
+//     }
+// }

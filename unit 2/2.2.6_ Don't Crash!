@@ -1,0 +1,10 @@
+function main() {
+    //Write your code here
+    if (facingSouth()){
+        turnLeft();
+    }
+    if (facingEast()){
+        move();
+    }
+}
+main();

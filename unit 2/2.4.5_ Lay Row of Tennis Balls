@@ -1,0 +1,16 @@
+/* Write a program to lay a row of tennis balls
+ * across first street. Make sure to test your
+ * program on multiple worlds. */
+function main() {
+    while(noBallsPresent()){
+        putBall();
+        while(frontIsClear()){
+            move();
+            while(noBallsPresent()){
+                putBall();
+            }
+       
+        }
+    }
+}
+main();

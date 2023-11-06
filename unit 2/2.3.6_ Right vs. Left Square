@@ -1,0 +1,56 @@
+function main() {
+    // Write your code here
+    if(facingEast()){
+        makeRightSquare();
+    }else{ 
+        makeLeftSquare();
+
+    }
+}
+function makeRightSquare() {
+    putBall();
+    move();
+    putBall();
+    turnRight();
+    turnRight();
+    turnRight();
+    move();
+    turnRight();
+    turnRight();
+    turnRight();
+    putBall();
+    move();
+    turnRight();
+    turnRight();
+    turnRight();
+    putBall();
+    move();
+    turnRight();
+    turnRight();
+    turnRight();
+}
+
+
+function makeLeftSquare(){
+    putBall();
+    move();
+    putBall();
+    turnLeft();
+    turnLeft();
+    turnLeft();
+    move();
+    putBall();
+    turnLeft();
+    turnLeft();
+    turnLeft();
+    move();
+    putBall();
+    turnLeft();
+    turnLeft();
+    turnLeft();
+    move();
+    turnLeft();
+    turnLeft();
+    turnLeft();
+}
+main();

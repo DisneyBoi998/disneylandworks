@@ -1,0 +1,7 @@
+function main() {
+    // Write your code here
+    for(let i =0; i<32; i++){
+        turnLeft();
+    }
+}
+main();

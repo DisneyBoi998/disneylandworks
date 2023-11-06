@@ -1,0 +1,19 @@
+function main() {
+	// Write your code here
+	for(let i=0; i<5; i++){
+	    jumpHurdle();
+	}
+}
+main();
+
+function jumpHurdle(){
+    move();
+    move();
+    turnLeft();
+    move();
+    turnRight();
+    move();
+    turnRight();
+    move();
+    turnLeft();
+}

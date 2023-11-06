@@ -1,0 +1,74 @@
+function main() {
+    // Write your code here
+    if(frontIsBlocked()){
+        makeTower();
+        blockedMoveDown();
+    }
+    while(frontIsClear()){
+        makeTower();
+        blockedMoveDown();
+        if(frontIsBlocked()){
+            takeBall();
+            putBall();
+        }else{
+            move();
+            if(frontIsClear()){
+                move();
+                if(frontIsBlocked()){
+                    turnAround();
+                    move();
+                    if(ballsPresent()){
+                        turnAround();
+                        move();
+                        putBall();
+                        takeBall();
+                    }else{
+                        turnAround();
+                        move();
+                        makeTower();
+                        blockedMoveDown();
+                    }
+                }else{
+                    putBall();
+                    takeBall();
+                }
+            }
+        }
+    }
+}
+main();
+function makeTower() {
+    turnLeft();
+    putBall();
+    move();
+    putBall();
+    move();
+    putBall();
+    move();
+}
+function blockedMoveDown(){
+    turnRight();
+    turnRight();
+    move();
+    move();
+    move();
+    turnLeft();
+}
+function realMoveDown(){
+    turnRight();
+    move();
+    if(frontIsBlocked()){
+        turnRight();
+        move();
+        move();
+        move();
+        turnLeft();
+    }else{
+        turnRight();
+        move();
+        move();
+        move();
+        turnLeft();
+        move();
+    }
+}

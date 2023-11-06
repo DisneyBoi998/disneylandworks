@@ -1,0 +1,19 @@
+function main() {
+	while (frontIsClear()) {
+        move();
+    }
+    if(frontIsBlocked()){
+        turnLeft();
+        neededFunction();
+    }
+    if(frontIsBlocked()){
+        turnRight();
+    }
+}
+main();
+
+function neededFunction() {
+    while(frontIsClear()){
+        move();
+    }
+}
