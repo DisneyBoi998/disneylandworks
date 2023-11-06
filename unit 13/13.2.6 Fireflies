@@ -1,0 +1,148 @@
+const GROUND_Y = 300;
+let fireflies = [];
+
+function main() {
+    // Initializes a sky and ground background
+    initBackground("#1313a1", "#114d1b", GROUND_Y);
+    
+    // Initializes the firefly objects and adds them to the array
+    initFireflies(25, "#fcdb03", 3, 4, GROUND_Y);
+
+    // Runs the animation
+    setTimer(run, 50);
+}
+
+// This function initializes all of the firefly objects and adds them
+// to the fireflies array
+function initFireflies(count, color, min, max, ground) {
+    for (let i = 0; i < count; i++) {
+        // Create random starting values for the firefly
+        let radius = Randomizer.nextInt(min, max);
+        let x = Randomizer.nextInt(radius, getWidth() - radius);
+        let y = Randomizer.nextInt(radius, ground - radius);
+        let vx = Randomizer.nextFloat(-3, 3);
+        let vy = Randomizer.nextFloat(-3, 3);
+        let on = Randomizer.nextBoolean();
+        
+        // Create the canvas graphic for the firefly
+        let graphic = new Circle(radius);
+        graphic.setPosition(x, y);
+        graphic.setColor(color);
+        if (on) {
+            add(graphic);
+        }
+
+        // Create the firefly object that keeps track of all of its properties
+        let firefly = {
+            x: x,
+            y: y,
+            radius: radius,
+            vx: vx,
+            vy: vy,
+            on: on,
+            graphic: graphic
+        }
+        
+        // Add firefly to the array
+        fireflies.push(firefly);
+    }
+}
+
+// This function is called by the timer and runs the animation
+function run() {
+    // Cycle through each firefly in the array
+    for (let firefly of fireflies) {
+        // Checks to see if the firefly has hit a border
+        checkLimits(firefly);
+
+        // Randomizes when a firefly turns on and off
+        randomizeOnOff(firefly);
+
+        // Randomizes when a firefly changes direction
+        randomizeMovement(firefly);
+
+        // Moves the graphic (the circle) of the firefly. This updates the position
+        // of the circle on the canvas
+        firefly.graphic.move(firefly.vx, firefly.vy);
+        
+        // Updates the x and y properties of the firefly object as well so that it stays
+        // insync with the position of the graphic circle
+        firefly.x += firefly.vx;
+        firefly.y += firefly.vy;
+    }
+}
+
+// This function checks to see if a firefly has hit any of the scene's boundary limits
+// and adjusts its position or velocity accordingly
+function checkLimits(firefly) {
+    // If the firefly has hit the right wall, move to left wall
+    if (firefly.x - firefly.radius >= getWidth()) {
+        firefly.x = 0;
+    } 
+    // if the firefly has hit the left wall, move to right wall
+    else if (firefly.x + firefly.radius <= 0) {
+        firefly.x = getWidth();
+    }
+
+    // Update the position of the firefly graphic based in case an x boundary was hit
+    firefly.graphic.setPosition(firefly.x, firefly.y);
+
+    // If the firefly hits the ground or top, reverse y velocity (will affect move later on)
+    if (firefly.y + firefly.radius >= GROUND_Y || firefly.y - firefly.radius <= 0) {
+        firefly.vy = -firefly.vy;
+    }
+}
+
+// This function creates the effect of random firefly motion (not just traveling in a
+// straight line).
+function randomizeMovement(firefly) {
+    // Creates a true boolean 1% of the time. Use this to determine if the firefly
+    // should randomly change direction
+    let changeDirectionX = Randomizer.nextBoolean(0.01);
+    let changeDirectionY = Randomizer.nextBoolean(0.01);
+    
+    if (changeDirectionX) {
+        firefly.vx = -firefly.vx;
+    }
+
+    if (changeDirectionY) {
+        firefly.vy = -firefly.vy;
+    }
+}
+
+// This function creates the blinking effect of a firefly (that is, a firefly is
+// not always lit up).
+function randomizeOnOff(firefly) {
+    // Creates a true boolean 0.5% of the time. Use this to determine when to 
+    // turn the firefly off and on
+    let turnOnOff = Randomizer.nextBoolean(0.005);
+
+    if (turnOnOff) {
+        if (firefly.on) {
+            // Hides the firefly
+            remove(firefly.graphic);
+            firefly.on = false;
+        } else {
+            // Shows the firefly
+            add(firefly.graphic);
+            firefly.on = true;
+        }
+    }
+
+}
+
+// This function initializes the background in the scene
+function initBackground(sky, ground, y) {
+    initRect(sky, 0);
+    initRect(ground, y);
+}
+
+// This function adds a rectangle to the canvas
+function initRect(color, y) {
+    let rect = new Rectangle(getWidth(), getHeight());
+    rect.setPosition(0, y);
+    rect.setColor(color);
+    add(rect);
+}
+
+main();
