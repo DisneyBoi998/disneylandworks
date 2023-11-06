@@ -1,0 +1,72 @@
+// Create all of your const variables here
+const PAN_RADIUS = 150;
+const PAN_X = getWidth()/2
+const PAN_Y = getHeight()/2
+const INSIDE_RADIUS = 130
+const WHITE_RADIUS = 50
+const YOLK_RADIUS = 30
+const YOLK_WHITE_RADIUS = 5
+function main() 
+{
+    createPan();
+    createHandle();
+    createInside();
+    createWhites();
+    createYolk();
+    createYolkWhite();
+}
+function createPan()
+{
+    let pan = new Circle(PAN_RADIUS);
+    pan.setPosition(PAN_X, PAN_Y);
+    pan.setColor("gray");
+    add(pan);
+}
+function createHandle()
+{
+    let handle = new Rectangle(100,50);
+    handle.setPosition(PAN_X + 140, PAN_Y - 25);
+    handle.setColor("gray");
+    add(handle);
+}
+function createInside()
+{
+    let circle = new Circle(INSIDE_RADIUS);
+    circle.setPosition(PAN_X, PAN_Y);
+    circle.setColor("black");
+    add(circle);
+}
+function createWhites()
+{
+    let white = new Circle(WHITE_RADIUS);
+    white.setPosition(PAN_X -30, PAN_Y + 20);
+    white.setColor("white");
+    add(white);
+    white = new Circle(WHITE_RADIUS);
+    white.setPosition(PAN_X + 30, PAN_Y - 20);
+    white.setColor("white");
+    add(white);
+    white = new Circle(WHITE_RADIUS);
+    white.setPosition(PAN_X - 30 , PAN_Y - 20);
+    white.setColor("white");
+    add(white);
+    white = new Circle(WHITE_RADIUS);
+    white.setPosition(PAN_X + 30, PAN_Y + 20);
+    white.setColor("white");
+    add(white);
+}
+function createYolk()
+{
+    let yolk = new Circle(YOLK_RADIUS);
+    yolk.setPosition(PAN_X, PAN_Y);
+    yolk.setColor("yellow");
+    add(yolk);
+}
+function createYolkWhite()
+{
+    let white = new Circle(YOLK_WHITE_RADIUS);
+    white.setPosition(PAN_X + 5, PAN_Y - 6);
+    white.setColor("white");
+    add(white);
+}
+main();

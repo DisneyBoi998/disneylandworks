@@ -1,0 +1,70 @@
+const HEAD_RADIUS = 50;
+const HEAD_X = getWidth()/2;
+const HEAD_Y = getHeight()/2.
+const BODY_WIDTH = 100;
+const BODY_HEIGHT = 100;
+const BODY_X = HEAD_X - HEAD_RADIUS;
+const BODY_Y = HEAD_Y + HEAD_RADIUS
+const EYE_RADIUS = 5;
+function main() 
+{
+    createHead();
+    createBody();
+    createArms();
+    createLegs();
+    createFace();
+    
+}
+function createHead()
+{
+    let head = new Circle(HEAD_RADIUS);
+    head.setPosition(HEAD_X, HEAD_Y);
+    head.setColor("yellow");
+    add(head);
+}
+function createBody()
+{
+    let body = new Rectangle(BODY_WIDTH, BODY_HEIGHT);
+    body.setPosition(BODY_X, BODY_Y);
+    body.setColor("yellow");
+    add(body);
+}
+function createArms()
+{
+    let arm = new Line(BODY_X, BODY_Y, 50, 100 );
+    arm.setLineWidth(6);
+    arm.setColor("yellow");
+    add(arm);
+    arm = new Line(BODY_X + 100, BODY_Y, 280, 100 );
+    arm.setLineWidth(6);
+    arm.setColor("yellow");
+    add(arm);
+}
+function createLegs()
+{
+    let leg = new Line(BODY_X, BODY_Y + 100, 100, 450 );
+    leg.setLineWidth(6);
+    leg.setColor("yellow");
+    add(leg);
+    leg = new Line(BODY_X + 100, BODY_Y + 100, 300, 450 );
+    leg.setLineWidth(6);
+    leg.setColor("yellow");
+    add(leg);
+    
+}
+function createFace()
+{
+    let eye = new Circle(EYE_RADIUS);
+    eye.setPosition(HEAD_X + 20, HEAD_Y);
+    eye.setColor("black");
+    add(eye);
+    eye = new Circle(EYE_RADIUS);
+    eye.setPosition(HEAD_X - 20, HEAD_Y);
+    eye.setColor("black");
+    add(eye);
+    let mouth = new Rectangle(40,10);
+    mouth.setPosition(HEAD_X - 20, HEAD_Y + 30);
+    mouth.setColor("red");
+    add(mouth);
+}
+main();
