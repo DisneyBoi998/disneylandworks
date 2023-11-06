@@ -1,0 +1,158 @@
+const GROUND_Y = 300;
+let stars = [];
+let buildings = [];
+let lines = [];
+
+function main() {
+    // Initialize all of the graphics in the scene
+    initScene();
+
+    // Animate the movement of the scene
+    setTimer(animate, 50);
+}
+
+// This function initializes all of the graphics objects in the scene
+function initScene() {
+    // Sky
+    drawRect(getWidth(), GROUND_Y, "#0e1c47", 0, 0);
+    
+    // Stars
+    createStars(40);
+    
+    // Ground
+    drawRect(getWidth(), getHeight() - GROUND_Y, "#49751d", 0, GROUND_Y);
+    
+    // Buildings
+    createBuildings(100);
+
+    // Road
+    createRoad(5);
+}
+
+// This function creates all of the stars in the scene, varying the 
+// x, y positions and radii
+function createStars(total) {
+    for (let i = 0; i < total; i++) {
+        let x = Randomizer.nextInt(-50, 400);
+        let y = Randomizer.nextInt(0, GROUND_Y);
+        
+        // Provides variance in star radius
+        if (i % 3 == 0) {
+            drawStar(2, x, y);
+        } else if (i % 2 == 0) {
+            drawStar(1.5, x, y);
+        } else {
+            drawStar(1, x, y);
+        }        
+    }
+}
+
+// This function creates all of the buildings with variance in 
+// the widths, heights, and colors
+function createBuildings(total) {
+    for (let i = 0; i < total; i++) {
+        let height;
+        if (i % 7 == 0) {
+            height =  Randomizer.nextInt(110, 200);
+        } else {
+            height =  Randomizer.nextInt(20, 100);
+        }
+
+        let width = height * 0.2;
+        let x = Randomizer.nextInt(-50, 400);
+        let y =  GROUND_Y - height;
+        let color;
+
+        if (height < 60) {
+            color = "#686969";
+        } else if (height < 90) {
+            color = "#757575";
+        } else {
+            color = "#828282";
+        }
+
+        drawBuilding(width, height, color, x, y);
+    }
+}
+
+// This function creates the road with stripes
+function createRoad(total) {
+    drawRect(getWidth(), 100, "#292929", 0, GROUND_Y + 100);
+    
+    for (let i = 0; i < total; i++) {
+        drawLine(30, 5, "#f7b500", i * 90, GROUND_Y + 150);
+    }
+}
+
+// This function adds the road stripes to the canvas and the global array
+function drawLine(width, height, color, x, y) {
+    let line = new Rectangle(width, height);
+    line.setColor(color);
+    line.setPosition(x, y);
+    add(line);
+    lines.push(line);
+}
+
+// This function draws a rectangle
+function drawRect(width, height, color, x, y) {
+    let rect = new Rectangle(width, height);
+    rect.setColor(color);
+    rect.setPosition(x, y);
+    add(rect);
+}
+
+// This function adds the buildings to the canvas and global array
+function drawBuilding(width, height, color, x, y) {
+    let building = new Rectangle(width, height);
+    building.setColor(color);
+    building.setPosition(x, y);
+    building.layer = height;
+    add(building);
+    buildings.push(building);
+}
+
+// This function adds the stars to the canvas and global array
+function drawStar(radius, x, y) {
+    let star = new Circle(radius);
+    star.setColor("yellow");
+    star.setPosition(x, y);
+    add(star);
+    stars.push(star);
+}
+
+// This function animates all of the elements in the scene. Items that 
+// are further back move slower, creating a parallax effect
+function animate() {
+    // Iterate through the stars, moving each based on radius size
+    for (let star of stars) {
+        if (star.getRadius() == 3) {
+            star.move(0.5, 0);
+        } else if (star.getRadius() == 2) {
+            star.move(0.2, 0);
+        }
+
+        if (star.getX() > getWidth()) {
+            star.setPosition(-50, star.getY());
+        }
+    }
+
+    // Iterate through buildings, moving each based on height
+    for (let building of buildings) {
+        building.move(0.005 * building.getHeight(), 0);
+
+        if (building.getX() > getWidth()) {
+            building.setPosition(-50, building.getY());
+        }
+    }
+
+    // Iterate through road lines
+    for (let line of lines) {
+        line.move(12, 0);
+
+        if (line.getX() > getWidth()) {
+            line.setPosition(-50, line.getY());
+        }
+    }
+}
+
+main();
