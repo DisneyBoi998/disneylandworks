@@ -1,0 +1,6 @@
+function main() {
+	let travelList = ["Morocco", "China", "Mars", "Turkey", "India"];
+	console.log(travelList[2]);
+}
+
+main();
