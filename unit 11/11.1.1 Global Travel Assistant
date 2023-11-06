@@ -1,0 +1,110 @@
+function main() {
+    console.log("Global Destination Assistant");
+    console.log("============================");
+    console.log("");
+    
+    let climate = chooseClimate();
+    console.log("");
+    
+    let length = chooseLength();
+    console.log("");
+    
+    let destination = finalLocation(climate, length);
+    
+    console.log("I recommend traveling to " + destination + ".");
+    console.log("");
+    
+    let currency = determineCurrency(destination);
+    let language = determineLanguage(destination);
+    console.log("Here's some additional information about " + destination + ".");
+    console.log("Currency: " + currency);
+    console.log("Official Language: " + language);
+}
+
+
+// First user question to determine climate preference
+function chooseClimate() {
+    let climate = readInt(
+        "Would you prefer visiting a (1) hot or (2) cold climate? "
+    );
+    return climate;
+}
+
+// Second user question to determine length of stay preference
+function chooseLength() {
+    let stay = readInt(
+        "Do you plan to stay (3) days, (7) days, or (0) longer than a week? "
+    );
+    return stay;
+}
+
+// Determines final country recommendation based on climate and length of stay
+function finalLocation(clim, len) {
+    if (clim == 1) {
+        if (len == 3) {
+            return "Bahamas";
+        } else if (len == 7) {
+            return "Thailand";
+        } else {
+            return "Nigeria";
+        } 
+    } else if (clim == 2) {
+        if (len == 3) {
+            return "Canada";
+        } else if (len == 7) {
+            return "Greenland";
+        } else {
+            return "Iceland";
+        } 
+    }
+}
+
+// Determine country's currency based on destination
+function determineCurrency(country) {
+    let money;
+    if (country == "Canada") {
+        money = "Canadian dollar";
+    }
+    if (country == "Greenland") {
+        money = "Danish krone";
+    }
+    if (country == "Iceland") {
+        money = "Icelandic króna";
+    }
+    if (country == "Bahamas") {
+        money = "Bahamian dollar";
+    }
+    if (country == "Thailand") {
+        money = "Thai baht";
+    }
+    if (country == "Nigeria") {
+        money = "Nigerian naira";
+    }
+    return money;
+}
+
+// Determine country's language based on destination
+function determineLanguage(country) {
+    let lang;
+    if (country == "Canada") {
+        lang = "French and English";
+    }
+    if (country == "Greenland") {
+        lang = "Greenlandic (Kalaallisut)";
+    }
+    if (country == "Iceland") {
+        lang = "Icelandic";
+    }
+    if (country == "Bahamas") {
+        lang = "English";
+    }
+    if (country == "Thailand") {
+        lang = "Thai or Central Thai";
+    }
+    if (country == "Nigeria") {
+        lang = "English and others";
+    }
+    return lang;
+}
+
+main();
