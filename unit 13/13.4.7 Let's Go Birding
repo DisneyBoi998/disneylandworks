@@ -1,0 +1,82 @@
+function main() {
+    // Create a new bird log
+    let birdLog = createLog();
+
+    // Add birds to the log
+    birdLog.addBird("Raven", "11-02-2020");
+    birdLog.addBird("American Goldfinch", "7-12-2021");
+    birdLog.addBird("Downy Woodpecker", "12-20-2022");
+    birdLog.addBird("House Finch", "5-5-2022");
+
+    // Try to add a bird that is already in the log
+    birdLog.addBird("Downy Woodpecker", "2-8-2023");
+
+    // Print the birds and dates in the log
+    birdLog.searchBirds("finch");
+
+    // Print the birds and dates in the log
+    birdLog.printAllBirds();
+}
+
+// This function creates a log object and returns it
+function createLog() {
+    let log = {
+        // This method adds a bird to the log object if it is
+        // not already in the log. 
+        addBird: function (name, date) {
+            // Checks to see if the name (key) is already in the log
+            // before adding it to the log.
+            if (name in this) {
+                console.log(name + " is already in the log.");
+                console.log();
+
+                // Extension
+                let update = readLine("Would you like to update the sighting date for this bird (Y/N)? ");
+                console.log();
+
+                if (update == "Y") {
+                    this[name] = date;
+                }
+            } else {
+                this[name] = date;
+            }
+        },
+
+        // This method will search through the bird names for the parameter
+        // string and print any birds that contain the string
+        searchBirds: function (bird) {
+            bird = bird.toLowerCase();
+
+            console.log("=== search results for " + bird + " ===");
+            for (let key in this) {
+                // Is only searching properties, not methods
+                if (typeof(this[key]) != "function") {
+                    if (key.toLowerCase().includes(bird)) {
+                        console.log(key + ": " + this[key]);
+                    }
+                }
+            }
+            console.log();
+        },
+
+        // This method iterates through the names in the log and 
+        // prints out each date
+        printAllBirds: function () {
+            console.log("=== All Birds ===");
+
+            // Iterates through each key in the log object
+            for (let key in this) {
+                // Only want to print the properties, i.e. the bird entries
+                if (typeof(this[key]) != "function") {
+                    console.log(key + ": " + this[key]);
+                }
+            }
+            console.log();
+        }
+    }
+
+    return log;
+}
+
+
+main();
