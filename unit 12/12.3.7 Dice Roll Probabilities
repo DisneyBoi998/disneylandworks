@@ -1,0 +1,65 @@
+// Sets the number of rolls that occurs within a sample
+const NUM_ROLLS = 100;
+
+function main() {
+    console.log("Number of rolls: " + NUM_ROLLS);
+    console.log();
+
+    // Initiates the dice rolling test
+    runTest(NUM_ROLLS);
+}
+
+// This function runs the dice rolling test with the number of rolls
+// designated by the parameter
+function runTest(num) {
+    // Creates a series of NUM_ROLLS samples
+    let test = generateSample(num);
+
+    // Counts the distributions of each NUM_ROLLS sample
+    let distribution = countSample(test);
+
+    // Calculates the average count of dice value with all of the samples
+    let percents = calculatePercents(distribution);
+
+    // Printing results
+    console.log("Percents of distribution:");
+    for (let i = 0; i < percents.length; i++) {
+        console.log((i+1) + ": " + percents[i] + "%");
+    }   
+}
+
+// This function generates a sample of random dice rolls and returns
+// the results in an array
+function generateSample(size) {
+    let array = [];
+    for (let i = 0; i < size; i++) {
+        array.push(Randomizer.nextInt(1, 6));
+    }
+
+    return array;
+}
+
+// This function counts the distribution of dice rolls in the parameter
+// array, returning the results
+function countSample(list) {
+    let count = [0, 0, 0, 0, 0, 0];
+
+    for (let point of list) {
+        count[point - 1] = count[point - 1] + 1;
+    }
+
+    return count;
+}
+
+// This function calculates the percent of dice roll distributions,
+// returning the results
+function calculatePercents(dist) {
+    let percent = []
+    for (let count of dist) {
+        percent.push(count/(NUM_ROLLS) * 100);
+    }
+
+    return percent;
+}
+
+main();
