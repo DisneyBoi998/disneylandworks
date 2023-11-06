@@ -1,0 +1,160 @@
+let ship;
+
+function main() {
+    // Initialize and run the background animation
+    initBackground();
+
+    // Create a new ship object and assign it to the global variable
+    ship = initShip();
+
+    // Initiate a key down listener that calls the move function
+    keyDownMethod(move);
+}
+
+// This function initializes the ship graphics and ship object. All of
+// the graphics are stored in an object so that they can move as one 
+// efficiently
+function initShip() {
+    let centerX = getWidth() / 2;
+
+    // Initialize the left wing
+    let lWing = new Rectangle(40, 15);
+    lWing.setPosition(centerX - 40, getHeight() - 55);
+    lWing.setColor("purple");
+    lWing.rotate(-20);
+    add(lWing);
+
+    // Initialize the right wing
+    let rWing = new Rectangle(40, 15);
+    rWing.setPosition(centerX, getHeight() - 55);
+    rWing.setColor("purple");
+    rWing.rotate(20);
+    add(rWing);
+
+    // Initialize the body
+    let body = new Circle(15);
+    body.setPosition(centerX, getHeight() - 50);
+    body.setColor("yellow");
+    add(body);
+
+    // Store all of the graphics parts in this object
+    let graphicsObjects = {
+        body: body,
+        lWing: lWing,
+        rWing: rWing
+    }
+
+    // Create a ship object that contains ship info and the ship 
+    // graphics parts object
+    let spaceship = {
+        x: body.getX(),
+        y: body.getY(),
+        vx: 8,
+        vy: 4,
+        graphics: graphicsObjects
+    }
+
+    // Return ship to be stored in a global variable
+    return spaceship;
+}
+
+// This function is called with key presses. Currently it moves the 
+// ship graphics left, right, up, and down.
+function move(e) {
+    // Left arrow
+    if (e.key == "ArrowLeft") {
+        // Iterate through all of the graphics in the graphics object
+        for (let part in ship.graphics) {
+            ship.graphics[part].move(-ship.vx, 0);
+        }
+        // Keep x property in object up to date
+        ship.x += -ship.vx;
+    }
+
+    // Right arrow
+    if (e.key == "ArrowRight") {
+        for (let part in ship.graphics) {
+            ship.graphics[part].move(ship.vx, 0);
+        }
+        ship.x += ship.vx;
+    }
+
+    // Up arrow
+    if (e.key == "ArrowUp") {
+        for (let part in ship.graphics) {
+            ship.graphics[part].move(0, -ship.vy);
+        }
+        ship.y += -ship.vy;
+    }
+
+    // Down arrow
+    if (e.key == "ArrowDown") {
+        for (let part in ship.graphics) {
+            ship.graphics[part].move(0, ship.vy);
+        }
+        ship.y += ship.vy;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// CODE THAT CREATES THE ASTEROID BACKGROUND //
+
+let asteroids = [];
+const asteroidURL = "https://codehs.com/uploads/f81de5104f270d0380021e84ef1a3fa4";
+
+function initBackground() {
+    let background = new Rectangle(getWidth(), getHeight());
+    add(background);
+    
+    initObstacles(10);
+    setTimer(animate, 50)
+}
+
+function initObstacles(total) {
+    for (let i = 0; i < total; i++) {
+        let x = Randomizer.nextInt(0, getWidth());
+        let y = Randomizer.nextInt(-400, -20);
+        let vy = Randomizer.nextInt(1, 3);
+        
+        let obs = {
+            x: x,
+            y: y,
+            vx: 0,
+            vy: vy,
+            graphic: new WebImage(asteroidURL)
+        }
+        
+        obs.graphic.setPosition(obs.x, obs.y);
+        add(obs.graphic);
+        asteroids.push(obs);
+    }
+}
+
+function animate() {
+    for (let ast of asteroids) {
+        checkBottom(ast);
+        ast.graphic.move(ast.vx, ast.vy);
+        ast.x += ast.vx;
+        ast.y += ast.vy;
+    }
+}
+
+function checkBottom(ast) {
+    if (ast.graphic.y >= getHeight()) {
+        ast.y = 0;
+    }
+
+    ast.graphic.setPosition(ast.x, ast.y);
+}
+
+main();
