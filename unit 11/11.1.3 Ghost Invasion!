@@ -1,0 +1,81 @@
+// Constants for main ghost body
+const HEAD_RADIUS = 35;
+const BODY_WIDTH = HEAD_RADIUS * 2;
+const BODY_HEIGHT = 60;
+const NUM_FEET = 3;
+const FOOT_RADIUS = (BODY_WIDTH) / (NUM_FEET * 2); 
+
+// Constants for eyes
+const PUPIL_RADIUS = 4;
+const PUPIL_LEFT_OFFSET = 8;
+const PUPIL_RIGHT_OFFSET = 20;
+const EYE_OFFSET = 14;
+const EYE_RADIUS = 10;
+const MIN_SIZE = 1;
+
+function main() {
+    let maxSize = readInt("Maximum Ghost Size: ");
+    let numGhost = readInt("Number of Ghosts to Create: ");
+    if (maxSize > 4) {
+        maxSize = 4;
+    }
+        
+    for (let i = 0; i < numGhost; i++) {
+        let size = Randomizer.nextInt(MIN_SIZE, maxSize);
+        let color = Randomizer.nextColor();
+        let centerX = Randomizer.nextInt(20, getWidth());
+        let centerY = Randomizer.nextInt(20, getHeight());
+        drawGhost(size, color, centerX, centerY);
+    }
+}
+
+/* Initializes a ghost whose head is centered at (centerX, centerY) and has the user-specified color. */
+function drawGhost(size, color, centerX, centerY) {
+    let head = HEAD_RADIUS * size;
+    let bodyW = BODY_WIDTH * size;
+    let bodyH = BODY_HEIGHT * size;
+    let feet = FOOT_RADIUS * size
+    let eyes = EYE_RADIUS * size;
+    
+    drawCircle(head, centerX, centerY, color); // draws the circular head
+    drawBody(bodyW, bodyH, centerX, centerY, color);
+    drawFeet(feet, centerX - bodyW / 2 + feet, centerY + bodyH, color);
+    drawEyes(eyes, centerX, centerY);
+}
+
+/* Draws the rectangular ghost body with the top center of the rectangle 
+ * placed at (centerX, centerY). */
+function drawBody(width, height, centerX, centerY, color) {
+    let body = new Rectangle(width, height);
+    body.setPosition(centerX - width / 2, centerY);
+    body.setColor(color);
+    add(body);
+}
+
+/* Draws the circular feet of the ghost with the center of the first foot 
+ * placed at (centerX, centerY). */
+function drawFeet(radius, centerX, centerY, color) {
+    for (let foot = 0; foot < NUM_FEET; foot++){
+        drawCircle(radius, centerX + 2 * foot * radius, centerY, color);
+    }
+}
+
+/* Draws eyes and pupils of ghost centered around (centerX, centerY). */
+function drawEyes(eyeRadius, centerX, centerY) {
+    drawCircle(eyeRadius, centerX - EYE_OFFSET, centerY, "white");
+    drawCircle(eyeRadius, centerX + EYE_OFFSET, centerY, "white");
+  
+    drawCircle(PUPIL_RADIUS, centerX - PUPIL_LEFT_OFFSET, centerY, "blue");
+    drawCircle(PUPIL_RADIUS, centerX + PUPIL_RIGHT_OFFSET, centerY, "blue");
+}
+
+/* Draws a circle with the specified radius and color at (centerX, centerY) on the canvas. */
+function drawCircle(radius, centerX, centerY, color) {
+    let circle = new Circle(radius);
+    circle.setPosition(centerX, centerY);
+    circle.setColor(color);
+    add(circle);
+}
+
+
+main();
