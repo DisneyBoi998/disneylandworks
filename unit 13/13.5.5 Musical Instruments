@@ -1,0 +1,17 @@
+function main() {
+    let piano = new Instrument("piano", "Roland", "$850");
+    piano.summary();
+}
+
+function Instrument(type, brand, cost) {
+    this.type = type;
+    this.brand = brand;
+    this.value = cost;
+
+    this.summary = function() {
+        console.log("This instrument is a " + this.brand + " " + this.type + ",");
+        console.log("valued at " + this.value + ".");
+    };
+}
+
+main();
