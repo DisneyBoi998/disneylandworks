@@ -1,0 +1,9 @@
+function main() { 
+	// Write your code here
+	move();
+	for(let i = 0; i<100; i++){
+        takeBall();
+	}
+	move();
+}
+main();
