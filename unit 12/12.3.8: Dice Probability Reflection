@@ -1,0 +1,25 @@
+After building your dice roll probability program and exploring the results, use your observations to answer to the following in the space provided:
+
+Do the 6 sides of the dice appear with equal probability in your simulated results? How do the number of rolls in your sample test affect the results? Explain what you observed in your exploration. Include data to support your observations.
+
+SAMPLE ANSWER: Based on my observations, the 6 sides of the dice do appear with equal probability in the simulated results, but, you need to have a large enough sample of rolls to accurately see this result. For example, with only 20 rolls in a sample, one simulation produced:
+
+Percents of distribution:
+1: 5%
+2: 35%
+3: 15%
+4: 5%
+5: 15%
+6: 25%
+
+This is not equally distributed. But the sample is too small to accurately view the probabilities. With a larger number of rolls, like 1,000, the distribution now looks like:
+
+Percents of distribution:
+1: 16.3%
+2: 16.6%
+3: 15.9%
+4: 17.6%
+5: 17%
+6: 16.6%
+
+Which is quite balanced across all numbers!!
