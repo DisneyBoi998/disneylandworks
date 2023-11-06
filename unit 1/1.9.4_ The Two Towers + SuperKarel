@@ -1,0 +1,38 @@
+function start(){
+	// Write your code here
+	tower1();
+	goDown();
+	tower2();
+}
+
+function tower1() {
+    move();
+    putBall();
+    turnLeft();
+    move();
+    putBall();
+    move();
+    putBall();
+    move();
+    turnRight();
+}
+function goDown(){
+    move();
+    turnRight();
+    move();
+    move();
+    move();
+    turnLeft();
+}
+
+function tower2(){
+    move();
+    turnLeft();
+    putBall();
+    move();
+    putBall();
+    move();
+    putBall();
+    move();
+    turnRight();
+}

@@ -1,0 +1,45 @@
+collectCoins();
+goBack();
+collectCoins();
+goBack();
+collectCoins();
+goBack();
+collectCoins();
+lastBack();
+
+
+  function collectCoins() {
+     move();
+     turnLeft();
+     move();
+     move();
+     move();
+     takeBall();
+     takeBall();
+  }
+
+function goBack() {
+    turnLeft();
+    turnLeft();
+    move();
+    move();
+    move();
+    turnLeft();
+    move();
+}
+
+function lastBack() {
+    turnLeft();
+    turnLeft();
+    move();
+    move();
+    move();
+    turnLeft();
+}
+
+
+function turnRight() {
+    turnLeft();
+    turnLeft();
+    turnLeft();
+}

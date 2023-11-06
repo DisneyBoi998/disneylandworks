@@ -1,0 +1,32 @@
+// Write your code here
+function start(){
+    goUp();
+    goDown();
+    goUp();
+}
+//function to make dog go down
+function goDown() {
+    move();
+    turnRight();
+    move();
+    move();
+    move();
+    turnLeft();
+}
+//function to make dog go up
+function goUp() {
+    move();
+    putBall();
+    turnLeft();
+    move();
+    putBall();
+    move();
+    putBall();
+    move();
+    turnRight();
+}
+function turnRight() {
+    turnLeft();
+    turnLeft();
+    turnLeft();
+}
