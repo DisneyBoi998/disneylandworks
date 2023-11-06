@@ -1,0 +1,38 @@
+function main() {
+    // Get length of barcode from user
+    let barLength = readInt("How long of a barcode do you want (100 - 400)? ");
+    
+    // Set the size of canvas for the barcode
+    setSize(barLength, 100);
+
+    // Generate and print barcode
+    let barcode = generateBarcode(barLength);
+    printBarcode(barcode);
+}
+
+// This function returns an array of random true / false values of
+// a given length
+function generateBarcode(length) {
+    let code = [];
+
+    for (let i = 0; i < length; i++) {
+        code.push(Randomizer.nextBoolean());
+    }
+    return code;
+}
+
+// This function receives an array of boolean values and draws a barcode
+// on the canvas, with black lines occurring at every true location.
+function printBarcode(booleanArray) {
+    let length = booleanArray.length;
+    
+    for (let i = 0; i < length; i++) {
+        if(booleanArray[i]) {
+            let line = new Line(i, 0, i, getHeight());
+            line.setLineWidth(1);
+            add(line);
+        }
+    }
+}
+
+main();
