@@ -1,0 +1,78 @@
+// Density of iron in g/cm^3
+const DENSITY = 7.874; 
+
+// Collected data of weights in lbs
+let data = [0.35, 0.20, 1.52, 0.12, 0.85, 0.48, 0.39, 0.94, 1.43, 0.65, 0.68, 1.09, 0.77, 1.1, 0.34];
+
+function main() {
+    // Make a copy of the data so we don't alter original data
+    let lbWeights = data.slice();
+
+    // Checks data to confirm all num
+    console.log("The data are all numbers: " + checkData(lbWeights));
+    console.log();
+
+    // Convert weights from lbs to g
+    let gMasses = convert(lbWeights, "lb", "g");
+
+    // Use g to calculate volumes
+    let volumes = calcVolumes(gMasses, DENSITY);
+
+    // A print function that prints the data, with indices and units
+    dataPrint(volumes, "cm^3");
+}
+
+// This function returns true if every item within the array is a number
+function checkData(list) {
+    return list.every(function(item) {
+        return typeof item == "number";
+    });
+
+}
+
+// This function will convert every item within the array from one unit
+// type to another, returning the results in an arary.
+function convert(list, unitOrig, unitNew) {
+    let converted;
+    if (unitOrig == "lb") {
+        if (unitNew == "g") {
+            // The map method helps convert each item
+            converted = list.map(function(item) {
+                return item * 454;
+            });
+        } else if (unitNew == "kg") {
+            converted = list.map(function(item) {
+                return item * 0.454;
+            });
+        }
+    }
+
+    // Converted will be undefined if the units didn't align above
+    if (converted == undefined) {
+        console.log("Invalid units.");
+        return;
+    } else {
+        return converted;
+    }
+}
+
+// This function will calculate the volumes of a mass array, 
+// given a density.
+function calcVolumes(list, density) {
+    let calculated = list.map(function(item) {
+            return Math.round(item * 100 / density) / 100;
+        });
+
+    return calculated;
+}
+
+// This function will print the values in the array with their 
+// indices in the array and the given unit.
+function dataPrint(list, unit) {
+    list.forEach(function(item, index) {
+        console.log(index + ": " + item + " " + unit);
+    });
+    console.log();
+}
+
+main();
