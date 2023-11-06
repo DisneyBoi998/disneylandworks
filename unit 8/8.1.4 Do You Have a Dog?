@@ -1,0 +1,7 @@
+/* This program should declare a boolean that describes whether or not you have a dog. Then it prints out an informative message to the user. */
+function main() 
+{
+	let haveDog = false;
+	console.log(haveDog);
+}
+main();
