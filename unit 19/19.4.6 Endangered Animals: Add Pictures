@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Endangered Species</title>
+		<style>
+		    body{
+		        background-color:#FFD1AA;
+		        font-size:18px;
+		    }
+		    h1{
+		        color:#003333;
+		    }
+		    h2{
+		        color:#162955;
+		    }
+		    img{
+		        height:200px;
+		    }
+		    
+		    .endangered{
+		        color:red;
+		    }
+		    .threatened{
+		        color:OrangeRed;
+		    }
+		    .scientific-name{
+		        font-style:italic;
+		    }
+		    #bear{
+		        border-style:solid;
+		    }
+		    #bat{
+		        border-style:dotted;
+		    }
+		    #prairie-dog{
+		        border-style:dashed;
+		    }
+		    #rat{
+		        border-style:double;
+		    }
+		</style>
+	</head>
+
+	<body>
+		<h1>Endangered Animals</h1>
+		
+		<h2> Baluchistan Bear</h2>
+		<ul>
+		    <li class='scientific-name'>
+		        Scientific Name: Urus thibetanus gedrosianus
+		    </li>
+		    <li>
+		        Lives in: Iran and Pakistan
+		    </li>
+		    <li class="endangered">
+		        Endangered
+		    </li>
+		</ul>
+		
+		<img id="bear" src="https://codehs.com/uploads/ccce647a63a4cb0d9beb735352ad8271" alt="Baluchistan Bear">
+		
+		<h2> False Water Rat </h2>
+		<ul>
+		    <li class='scientific-name'>
+		        Scientific Name: Xeromys myoides
+		    </li>
+		    <li>
+		        Lives in: Australia
+		    </li>
+		    <li class="endangered">
+		        Endangered
+		    </li>
+		</ul>
+		
+		
+		<img id="rat" src="https://codehs.com/uploads/c6a42c23dc1d53dd7628460cfa003f43" alt="Brown Rat, Representative of a general rat">
+		
+		<h2> Mariana Fruit Bat (Mariana Flying Fox)</h2>
+		<ul>
+		    <li class='scientific-name'>
+		        Scientific Name: Pteropus mariannus
+		    </li>
+		    <li>
+		        Lives in: Western Pacific Ocean, US
+		    </li>
+		    <li class="threatened">
+		        Threatened
+		    </li>
+		</ul>
+		
+		<img id="bat" src="https://codehs.com/uploads/d9b9037cf82ebaf687f5337cc9393bcc" alt="Mariana Fruit Bat">
+		
+		
+		<h2>Utah Prairie Dog </h2>
+		<ul>
+		    <li class='scientific-name'>
+		        Scientific Name: Cynomys parvidens
+		    </li>
+		    <li>
+		        Lives in: Utah, US
+		    </li>
+		    <li class="threatened">
+		        Threatened
+		    </li>
+		</ul>
+		
+		<img id="prairie-dog" src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Prairie_Dog_Washington_DC_1.jpg" alt="Utah Prairie Dog">
+		
+		
+		<br><br><br><br><br><br><br>
+		<footer style="font-size:8px">
+		    <h3>Picture Attributes</h3>
+		    
+		    <h5>Baluchistan Bear </h5>
+		    <p>
+		        By Ruholah.ahmadi (Own work) [<a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>], <a href="https://commons.wikimedia.org/wiki/File%3A%D8%AE%D8%B1%D8%B3_%D8%B3%DB%8C%D8%A7%D9%87_-_%D8%B1%D9%88%D8%AF%D8%A7%D9%86.jpg">via Wikimedia Commons</a><br>
+		        Retrieved from: https://commons.wikimedia.org/wiki/File:%D8%AE%D8%B1%D8%B3_%D8%B3%DB%8C%D8%A7%D9%87_-_%D8%B1%D9%88%D8%AF%D8%A7%D9%86.jpg#filelinks
+		    </p>
+		    
+		    <h5>Utah Prarie Dog</h5>
+		    <p>
+		        Aaron Siirila [<a href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA 2.5</a>], <a href="https://commons.wikimedia.org/wiki/File%3APrairie_Dog_Washington_DC_1.jpg">via Wikimedia Commons</a>
+		        
+		    </p>
+		    
+		    
+		</footer>
+	</body>
+</html>
