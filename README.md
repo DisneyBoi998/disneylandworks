@@ -1,2 +1,2 @@
 # disneylandworks
-work disneyland just as the repo is called
+work for disneyland project just as the repo is called
