@@ -1,0 +1,30 @@
+const RADIUS = 100;
+const CENTER_X = getWidth() / 2;
+const CENTER_Y = getHeight() / 2;
+
+let crazyBall;
+
+function main(){
+    crazyBall = initBall(RADIUS, "blue", CENTER_X, CENTER_Y);    
+    setTimer(changeBall, 100);
+}
+
+function initBall(radius, color, x, y){
+    let ball = new Circle(radius);
+    ball.setPosition(x, y);
+    ball.setColor(color);
+    add(ball);
+    
+    return ball;
+}
+
+function changeBall(){		 
+    let x = Randomizer.nextInt(RADIUS, getWidth() - RADIUS);
+    let y = Randomizer.nextInt(RADIUS, getHeight() - RADIUS);
+    let color = Randomizer.nextColor();
+    
+    crazyBall.setPosition(x, y);
+    crazyBall.setColor(color);
+}
+
+main();
