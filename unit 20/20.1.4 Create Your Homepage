@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calvin's Homepage</title>
+        <style>
+            body{
+                background-color: #8CF5F5;  
+                font-family: Helvetica;
+            }
+            
+            h1 {
+                color: #0D0DD9;
+            }
+            
+            h2 {
+                color: #0D0DD9;
+            }
+            
+            h3 {
+                color: #0D0DD9;
+            }
+            
+            img.profilePic {
+                width: 250px;
+            }
+            
+            #css {
+                font-style: italic;
+                color: #BB00CC;
+            }
+            
+            p {
+                font-size: 18px;
+            }
+            
+            canvas {
+                border: 1px solid black;
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to Calvin's Homepage</h1>
+        <img class="profilePic" src="https://codehs.com/static/img/lens_flarel.png">
+        
+        <p>Hi! My name is Calvin, and I'm on a mission to learn as much as I can about computer science. That's why I'm taking <a href="https://codehs.com/info/curriculum/web_design">Web Design</a> with CodeHS!</p>
+        
+        <p>I started off with learning <b>HTML</b> and <span id="css">CSS</span>. That's how I made my very own homepage!</p>
+        
+        <p>You can make your own homepage as well! Simply go to the CodeHS <a href="https://codehs.com/editor/sandbox">Sandbox</a>, and click the edit Homepage button:</p>
+        <a href="https://codehs.com/editor/sandbox"><img src="https://s3.amazonaws.com/f.cl.ly/items/3j0Q411Y22473S01053I/Screen%20Shot%202016-03-17%20at%2010.57.25%20AM.png?v=72bdf79d"></a>
+        
+        <p>Any HTML code you write will be hosted at your very own <a href="https://en.wikipedia.org/wiki/Subdomain">subdomain</a> on the <a href="https://codehs.me">codehs.me</a> domain.
+         For example, mine is <a href="https://calvin.codehs.me">calvin.codehs.me</a>
+        </p>
+        
+        <p>This is a publicly visible URL, so you can easily share your homepage with friends and family by sending them a <a href="https://en.wikipedia.org/wiki/Hyperlink">link</a>!</p>
+        
+        <h2>About my Homepage</h2>
+        
+        <p>As I go through the CodeHS Web Design course, I'll be updating my homepage
+            with all of my latest creative projects. At the end of the course I'll have a full 
+            portfolio of computational artifacts!
+        </p>
+        
+        <p>
+            <b><i>Please check out some of my favorite projects below:</i></b>
+        </p>
+        
+        <h3>Personal Calendar</h3>
+        <p>This is a calendar I made using HTML!</p>
+        
+        <h4>November 2016</h4>
+        <table border="1">
+          <tr>
+            <th>Sunday</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4
+              <ul>
+                <li>Dad's Birthday</li>
+                <li>Trip to Yosemite</li>
+              </ul></td>
+            <td>5
+              <ul>
+                <li>Trip to Yosemite</li>
+              </ul></td>
+          </tr>
+          <tr>
+            <td>6
+              <ul>
+                <li>Trip to Yosemite</li>
+              </ul></td>
+            <td>7</td>
+            <td>8
+              <ul>
+                <li>Election Day</li>
+              </ul></td>
+            <td>9</td>
+            <td>10</td>
+            <td>11
+              <ul>
+                <li>Veteran's Day</li>
+              </ul></td>
+            <td>12
+              <ul>
+                <li>National Pizza Day</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16
+              <ul>
+                <li>International Day for Tolerance</li>
+              </ul>
+            </td>
+            <td>17
+              <ul>
+                <li>Mom's Birthday</li>
+              </ul>
+            </td>
+            <td>18</td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24
+              <ul>
+                <li>Thanksgiving</li>
+              </ul></td>
+            <td>25</td>
+            <td>26</td>
+          </tr>
+          <tr>
+            <td>27</td>
+            <td>28
+              <ul>
+                <li>Cyber Monday</li>
+              </ul></td>
+            <td>29
+              <ul>
+                <li>Giving Tuesday</li>
+              </ul></td>
+            <td>30</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        
+        <h3>More Projects</h3>
+        <ul>
+            <li><a href="https://codehs.com/editor/html/154000/162424/index.html">Simple Checkerboard</a></li>
+            <li><a href="https://codehs.com/editor/html/158804/162424/index.html">Music Library</a></li>
+            <li><a href="https://codehs.com/editor/html/158794/162424/index.html">List Article</a></li>
+        </ul>
+        
+        <h2>Thank You!</h2>
+        <p>I hope you enjoyed viewing my homepage, and I encourage you to <a href="https://codehs.com/editor/sandbox">make your own</a>!</p>
+        <p>If you're interested in learning more about the CodeHS Web Design course, check out the following resources:</p>
+        <ul>
+            <li><b>Course Info Page: </b> <a href="https://codehs.com/info/curriculum/web_design">https://codehs.com/info/curriculum/web_design</a></li>
+            <li><b>Course Syllabus: </b> <a href="http://codehs.com/syllabus/web_design">http://codehs.com/syllabus/web_design</a></li>
+        </ul>
+        
+        <p>If you have any questions, or if you're interested in teaching Web Design at your school with CodeHS, shoot us an email at <a href="mailto:hello@codehs.com">hello@codehs.com</a> and let us know!</p>
+    </body>
+</html>
