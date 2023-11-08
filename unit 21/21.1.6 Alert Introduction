@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h3>Introduce yourself to the webpage!</h3>
+     <script>
+            var name = prompt("What is your name?");
+            alert("Hi " + name + ", it's nice to meet you!");
+        </script>
+    </body>
+</html>
