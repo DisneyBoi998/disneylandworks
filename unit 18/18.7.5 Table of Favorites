@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Favorites by Day</title>
+    </head>
+    
+    <body>
+        <h1>My Daily Favorites</h1>
+        <table border="1">
+            <tr>
+                <th>Sunday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+            </tr>
+            <tr>
+                <td>Pancakes</td>
+                <td>Toast and Peanut butter</td>
+                <td>Protein Shake</td>
+                <td>Toast and Peanut butter</td>
+                <td>Yogurt with granola and berries</td>
+                <td>Fruit Smoothie</td>
+                <td>Cereal and milk</td>
+            </tr>
+            <tr>
+                <td>Go to the lake</td>
+                <td>Play soccer</td>
+                <td>Play board games</td>
+                <td>Watch TV</td>
+                <td>Ride my bike</td>
+                <td>Watch movies</td>
+                <td>Play baseball</td>
+            </tr>
+            <tr>
+                <td>Parents</td>
+                <td>Janice</td>
+                <td>Janice</td>
+                <td>Janice</td>
+                <td>Janice</td>
+                <td>Janice</td>
+                <td>Stevie</td>
+            </tr>
+            <tr>
+                <td>Art Museum</td>
+                <td>Park</td>
+                <td>Game store</td>
+                <td>Living room</td>
+                <td>Park</td>
+                <td>Mini-Golf Park</td>
+                <td>Amusement Park</td>
+            </tr>
+        </table>
+    </body>
+</html>
