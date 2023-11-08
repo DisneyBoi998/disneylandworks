@@ -1,0 +1,32 @@
+const CIRCLES_PER_SPLATTER = 20;
+const MIN_RADIUS = 5;
+const MAX_RADIUS = 25;
+const DELAY = 500;
+
+function main() {
+    setTimer(drawPaintSplatter, DELAY);
+}
+
+// Draws CIRCLES_PER_SPLATTER circles with random radii, 
+// colors, and positions.
+function drawPaintSplatter() {
+    let color = Randomizer.nextColor();
+    
+    for (let i = 0; i < CIRCLES_PER_SPLATTER; i++) {
+        let radius = Randomizer.nextInt(MIN_RADIUS, MAX_RADIUS);
+        let x = Randomizer.nextInt(0, getWidth());
+        let y = Randomizer.nextInt(0, getHeight());
+        drawCircle(radius, color, x, y);
+    }
+}
+
+// Draws one circle with the specified radius and color
+// at (x, y).
+function drawCircle(radius, color, x, y) {
+    let circle = new Circle(radius);
+    circle.setColor(color);
+    circle.setPosition(x, y);
+    add(circle);
+}
+
+main();
