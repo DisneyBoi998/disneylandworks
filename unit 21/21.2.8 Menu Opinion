@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<body>
+	    <h2>Tonight's Menu</h2>
+		<ol>
+		    <li>Caesar Salad</li>
+		    <li>French Onion Soup</li>
+		    <li>Mac N Cheese</li>
+		    <li>Pork Chops with Spinach</li>
+		    <li>Cheesecake</li>
+		</ol>
+		<script>
+		//Commented out so that the alerts don't go off when we open the excersize!
+		    var liList = document.getElementsByTagName("li");
+		  //  alert("My favorite item on the menu is "+ liList[2].innerHTML);
+		  //  alert("My least favorite item on the menu is " + liList[1].innerHTML);
+		</script>
+	</body>
+</html>
