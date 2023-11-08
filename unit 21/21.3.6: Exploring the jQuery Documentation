@@ -1,0 +1,12 @@
+1. Name one function of JQuery that you stumbled upon. What does that function do?
+    it is to change colors
+2. How can you use that function on a web page?
+    change the colors on the webpage
+3. How could you have implemented that using regular Javascript?
+    some function
+ 4. There is a shortcut for how to create a click event. Find the function that can be used to create a click that doesn't involve using the `.on` function. What is it called?
+    .click()
+5. Why might you use this instead of `.on`?
+   This is a faster way of writing a click event.
+6. Why might you use `.on` instead of this function?
+   .on allows elements that have been dynamically added to also have the event handler, whereas .click do not.
