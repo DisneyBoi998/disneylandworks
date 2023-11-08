@@ -1,0 +1,53 @@
+/* This program draws a target that follows the mouse. When
+the mouse is clicked, a red circle is added. */
+
+const CENTER_X = getWidth() / 2;
+const CENTER_Y = getHeight() / 2;
+let hLine;
+let vLine;
+
+function main() {
+    // Creates and initializes the two lines
+	hLine = initLine(0, CENTER_Y, getWidth(), CENTER_Y);
+	vLine = initLine(CENTER_X, 0, CENTER_X, getHeight());
+	
+	mouseMoveMethod(resetTarget);
+	mouseClickMethod(addRedCircle);
+}
+
+// This function initializes the two lines to the center
+function initLine(x1, y1, x2, y2) {
+	let line = new Line(x1, y1, x2, y2);
+	add(line);
+	
+	return(line);
+}
+
+// This function adds a red circle when mouse is clicked
+function addRedCircle(e) {
+	let circle = new Circle(10);
+	circle.setColor("red");
+	circle.setPosition(e.getX(), e.getY());
+	add(circle);
+}
+
+// This function updates the horizontal line to y value
+function setHorizontalLine(y) {
+	hLine.setPosition(0, y);
+	hLine.setEndpoint(getWidth(), y);
+}
+
+// This function updates the vertical line to x value
+function setVerticalLine(x) {
+	vLine.setPosition(x, 0);
+	vLine.setEndpoint(x, getHeight());
+}
+
+// This function updates the lines based on location of mouse
+// as it moves
+function resetTarget(e) {
+	setHorizontalLine(e.getY());
+	setVerticalLine(e.getX());
+}
+
+main();
