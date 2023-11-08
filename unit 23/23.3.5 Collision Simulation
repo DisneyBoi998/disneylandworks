@@ -1,0 +1,49 @@
+const RADIUS = 25;
+const DELAY = 40;
+const CENTER_X = getWidth() / 2;
+const CENTER_Y = getHeight() / 2;
+
+let orangeBall;
+let redBall;
+let dxOrange = 0;
+let dxRed = 4;
+
+function main(){
+	orangeBall = initBall(RADIUS, "orange", CENTER_X, CENTER_Y);
+	redBall = initBall(RADIUS, "red", 50, CENTER_Y);
+    createFloor(getWidth(), CENTER_Y, "#83a647", 0, CENTER_Y + RADIUS);
+    
+    setTimer(moveBalls, DELAY);
+}
+
+function initBall(radius, color, x, y) {
+    let ball = new Circle(radius);
+	ball.setPosition(x, y);
+	ball.setColor(color);
+	add(ball);
+	
+	return ball;
+}
+
+function createFloor(width, height, color, x, y) {
+    let floor = new Rectangle(width, height);
+    floor.setPosition(x, y);
+    floor.setColor(color);
+    add(floor);
+}
+
+ function moveBalls() {
+    checkCollision();
+    orangeBall.move(dxOrange, 0);
+    redBall.move(dxRed, 0);
+}
+
+
+function checkCollision() {
+	if(redBall.getX() + redBall.getRadius() > orangeBall.getX() - orangeBall.getRadius()){
+		dxOrange = 4;
+		dxRed = -dxRed;
+	}
+}
+
+main();
