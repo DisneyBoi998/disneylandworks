@@ -1,0 +1,41 @@
+const BRICK_WIDTH = 50;
+const BRICK_HEIGHT = 20;
+
+let brickY = getHeight() - BRICK_HEIGHT;
+let brickX = 0;
+
+function main() {
+    setTimer(makeWall, 50);
+}
+
+function makeWall(){
+    // If there is more space for a brick in a row
+    if (brickX < getWidth()) {
+        drawBrick(BRICK_WIDTH, BRICK_HEIGHT, brickX, brickY);
+        
+        // Calculate the location of the next brick
+        brickX = brickX + BRICK_WIDTH;
+    }
+    // If no more space in a row, reset x location and change y location
+    else {
+        brickX = 0;
+        // If at the top of the canvas
+        if (brickY <= 0) {
+            stopTimer(makeWall);
+        }
+        else {
+            // Calculates the y location of the next row
+            brickY = brickY - BRICK_HEIGHT;
+        }
+    }
+}
+
+// This function draws a rectangle of a random red color
+function drawBrick(width, height, x, y){
+    let rectangle = new Rectangle(width, height);
+    rectangle.setColor(Color.randomRed());
+    rectangle.setPosition(x, y);
+    add(rectangle);
+}
+
+main();
