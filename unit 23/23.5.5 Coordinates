@@ -1,0 +1,23 @@
+/* This program displays the x and y coordinates in a 
+label on the screen and updates when the mouse moves */
+let coordinates;
+
+function main(){
+    coordinates = initText();
+	
+	mouseMoveMethod(updateCoordinates);
+}
+
+function initText(startingText = "(0, 0)") {
+    let text = new Text(startingText);
+	text.setPosition(0, text.getHeight());
+	add(text);
+	
+	return text;
+}
+
+function updateCoordinates(e) {
+	coordinates.setText("(" + e.getX() + ", " + e.getY() + ")");
+}
+
+main();
