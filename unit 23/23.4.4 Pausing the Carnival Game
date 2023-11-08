@@ -1,0 +1,84 @@
+const CENTER_X = getWidth() / 2;
+const CENTER_Y = getHeight() / 2;
+const WIDTH = 30;
+const HEIGHT = 50;
+const INIT_COLOR = "yellow";
+const BACKGROUND_X = CENTER_X - 75;
+const DELAY = 20;
+
+// Vertical zones that will determine the color of the weight
+const ZONE_1 = getHeight() - (getHeight() / 4);
+const ZONE_2 = getHeight() - (getHeight() / 4) * 2;
+const ZONE_3 = getHeight() - (getHeight() / 4) * 3;
+const ZONE_4 = 0;
+
+let weight;
+let dy = -10;
+let paused = false;
+
+function main() {
+    createBackground();
+    weight = initRect(WIDTH, HEIGHT, INIT_COLOR, CENTER_X - WIDTH / 2, CENTER_Y);
+
+    mouseClickMethod(pause);
+    setTimer(launch, DELAY);
+}
+
+function initRect(width, height, color, x, y) {
+    let rect = new Rectangle(width, height);
+    rect.setPosition(x, y);
+    rect.setColor(color);
+    add(rect);
+    
+    return rect;
+}
+
+// This function adds the background image of the carinval game
+function createBackground() {
+    let background = new WebImage("https://codehs.com/uploads/4d907bf404396e93286113dd9c2421fe");
+    background.setPosition(BACKGROUND_X, 0);
+    add(background);
+}
+
+// This function is called upon a click and reverses the pause status
+function pause() {
+    paused = !paused;
+}
+
+// This function animates the weight up and down
+function launch() {
+    // The timer actions only happen if the game is not paused
+    if (!paused) {
+        pickColor();
+        checkCollision();
+        weight.move(0, dy);
+    }
+}
+
+// This function sets the color of the weight based on the 
+// vertical zone it is in
+function pickColor() {
+    let y = weight.getY();
+    
+    if (y >= ZONE_1) {
+        weight.setColor("green");
+    } else if (y >= ZONE_2) {
+        weight.setColor("yellow");
+    } else if (y >= ZONE_3) {
+        weight.setColor("orange");
+    } else {
+        weight.setColor("red");
+    }
+}
+
+// This function checks for a collision with the top or bottom wall
+function checkCollision() {
+    let top = weight.getY();
+    let bottom = weight.getY() + weight.getHeight();
+    
+    if (top <= 0 || bottom >= getHeight()) {
+        dy = -dy;
+    }
+}
+
+main();
