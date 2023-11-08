@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Black Panther</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <h3>The works of Ta-Nehisi Coates</h3>
+        <p>While Ta-Nehisi Coates is well known for books and articles on social justic issues, such as "Between the World and Me"<span class = "footer">1</span>,
+        few people are aware that he was actually the writer for the most recent reboot of the "Black Panther" comic book series<span class = "footer">2</span>.
+        While comics are a major departure from his normal literary contributions<span class = "footer">3</span>, Black Panther as a comic series 
+        focuses on issues of race and power in ways that are somewhat atypical for other comics<span class = "footer">4</span>, making Coates' involvement
+        more characteristic.
+        </p>
+        <p class = "footnote">1. Notes from page 3.</p>
+        <p class = "footnote">2. Pages 34-35</p>
+        <p class = "footnote">3. Page 56</p>
+        <p class = "footnote">4. Interview with the author</p>
+        <button id = "minimize">Minimize</button>
+        <script>
+            $("#minimize").click(function(){
+                $(".footnote").css("font-size", "10px");
+                $(".footer").css("font-size", "7px");
+            });
+        </script>
+    </body>
+</html>
