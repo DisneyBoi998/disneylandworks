@@ -1,0 +1,9 @@
+1. What are the big differences between cookies and local storage?
+    Cookies interact with the server, while local storage does not. Local storage also
+    stores more data than a cookie.
+2. Why would you use a cookie instead of local storage?
+    If you need to interact with the server at all to access information, cookies are the only form of borwser storage that can do so.
+3. Why would you use local storage instead of a cookie?
+    If you need to store more data, and do not want to interact with the server at all to save time.
+4. What are the limitations of both options?
+    They both are limited storage options, and are much lower security than using something like a data server.
