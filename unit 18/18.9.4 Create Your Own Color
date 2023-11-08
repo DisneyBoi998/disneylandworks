@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>All About Me!</title>
+	</head>
+	
+
+	<body style="background-color:AliceBlue;">
+	    <h1 style="background-color:#65E04F;">Karel's Webpage</h1>
+	    <p style="background-color:rgb(255, 255, 102);">
+	        My favorite thing to eat is Kibble.  I like playing in the park
+	        and chasing tennis balls.
+	    </p>
+	</body>
+</html>
