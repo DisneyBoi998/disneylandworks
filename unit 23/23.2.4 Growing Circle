@@ -1,0 +1,37 @@
+const CENTER_X = getWidth() / 2;
+const CENTER_Y = getHeight() / 2;
+const START_RADIUS = 1;
+const INCREMENT = 1;
+const CHANGE_COLORS_AT = 10;
+const DELAY = 50;
+
+let growingCircle;
+
+function main(){
+    growingCircle = initCircle(START_RADIUS, "purple", CENTER_X, CENTER_Y);
+    setTimer(growCircle, DELAY);
+}
+
+function initCircle(radius, color, x, y){
+    let circle = new Circle(radius);
+    circle.setPosition(x, y);
+    circle.setColor(color);
+    add(circle);
+    
+    return circle;
+}
+
+function growCircle(){
+    let newRadius = growingCircle.getRadius() + INCREMENT;
+    growingCircle.setRadius(newRadius);
+
+    if (newRadius % CHANGE_COLORS_AT == 0){
+        growingCircle.setColor(Randomizer.nextColor());	
+    }
+	
+    if (newRadius * 2 >= getHeight()){
+        stopTimer(growCircle);	
+    }
+}
+
+main();
