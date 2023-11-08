@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>CodeHS</title>
+    </head>
+    
+    <body>
+       <img width="100px" height="150px" src="https://placekitten.com/g/300/400">
+       <img width="100px" height="150px" src="https://placekitten.com/g/150/250">
+       <br>
+       <img width="100px" height="150px" src="https://placekitten.com/g/150/200">
+       <img width="100px" height="150px" src="https://placekitten.com/g/300/450">
+    </body>
+</html>
