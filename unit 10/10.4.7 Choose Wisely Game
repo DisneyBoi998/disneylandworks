@@ -1,0 +1,58 @@
+/* This game provides choices for the player to the make, where each
+choice results in a gain or loss of lives. */
+
+let lives = 5;
+
+function main() {
+    let choice = dungeonChoice();
+    updateLives(choice, 1, -1, 1);
+
+    console.log();
+    console.log("===================");
+    
+    choice = bookChoice();
+    updateLives(choice, 1, 5, -2);
+}
+
+function dungeonChoice() {
+    console.log("Welcome to the dungeon!");
+    console.log("You currently have " + lives + " lives.");
+    console.log();
+    console.log("What would you like to do:");
+    console.log("A) Eat some spinach.");
+    console.log("B) Fight a dragon.");
+    console.log("C) Befriend a cute little troll.");
+    console.log();
+    
+    let choice = readLine("Choice: ");
+    return choice;
+}
+
+function bookChoice() {
+    console.log("Welcome to the book store!");
+    console.log("You currently have " + lives + " lives.");
+    console.log();
+    console.log("What would you like to do:");
+    console.log("A) Say hi to the staff member.");
+    console.log("B) Buy a book and support a local business.");
+    console.log("C) Run through the store yelling, 'I LOVE BOOKS!!'");
+    console.log();
+    
+    let choice = readLine("Choice: ");
+    return choice;
+}
+
+// This function updates the lives of a player based on the values
+// of the choices sent in as parameters.
+function updateLives(choice, aValue = 1, bValue = 1, cValue = 1) {
+    if (choice == "A") {
+        lives += aValue;
+    } else if (choice == "B") {
+        lives += bValue;
+    } else if (choice == "C") {
+        lives += cValue
+    }
+    console.log("You now have " + lives + " lives.");
+}
+
+main();
