@@ -1,0 +1,23 @@
+function main() {
+    while (true) {
+        let num = readInt("Enter a number: ");
+		
+        if (num == 0) {
+            break;
+        }
+
+        if (isEven(num)) {
+            console.log("Even");
+        } else { 
+            console.log("Odd");
+        }
+    }
+    console.log("Done!");
+}
+
+// Returns true if a number is even
+function isEven(x) {
+    return x % 2 == 0;
+}
+
+main();
