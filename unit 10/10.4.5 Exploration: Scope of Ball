@@ -1,0 +1,50 @@
+/* This program demonstrates the use of a global variable
+"ball" that needs to be accessed in three different functions.
+*/
+const START_RADIUS = 75;
+const START_X = 100;
+const START_Y = 200;
+const START_COLOR = "yellow";
+const BIG_R = 300;
+const SMALL_R = 10;
+
+// Declare (and not initialize) your global ball variable here:
+let ball;
+
+function main() {
+    initializeBall();
+    modifyBallWithChoice();
+}
+
+function initializeBall() {
+    ball = new Circle(START_RADIUS);
+    ball.setPosition(START_X, START_Y);
+    ball.setColor(START_COLOR);
+    add(ball);
+}
+
+async function modifyBallWithChoice() {
+    console.log("What would you like to do?");
+    console.log("1) Make the ball BIG and orange.");
+    console.log("2) Make the ball small, blue, and in the top-right.");
+    console.log("3) Remove the ball.");
+    console.log();
+    
+    let choice = await readLineAsync("Choice: ");
+ 
+    if (choice == "1") {
+        alterBall(BIG_R, "orange");
+    } else if (choice == "2") {
+        alterBall(SMALL_R, "blue", 340, 50);
+    } else if (choice == "3") {
+        remove(ball);
+    }
+}
+
+function alterBall(radius, color, x = ball.getX(), y = ball.getY()) {
+    ball.setRadius(radius);
+    ball.setColor(color);
+    ball.setPosition(x, y);
+}
+
+main();
