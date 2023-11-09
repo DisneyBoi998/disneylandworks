@@ -1,0 +1,38 @@
+function main() 
+{
+    let answer = readLine("#1: What is the largest country in the world?: ");
+    let lowercase = answer == "russia";
+    let uppercase = answer == "Russia";
+    if (lowercase || uppercase)
+    {
+       correctScreen();
+    }
+    else
+    {
+        incorrectScreen();
+    } 
+    console.log("***********");
+    console.log("Thanks for playing!");
+}
+main();
+function incorrectScreen()
+{
+    let wrong = new WebImage("https://codehs.com/uploads/b1d0c18ddffdff2e7be946811077ddc1");
+    wrong.setPosition(0,0);
+    wrong.setSize(400,400);
+    add(wrong);
+    let txt = new Text("You are incorrect");
+    txt.setPosition(100,100);
+    add(txt);
+}
+function correctScreen()
+{
+    let correct = new WebImage("https://codehs.com/uploads/97afdabd4daa52727bcf38bb53d0d7bf");
+    correct.setPosition(0,0);
+    correct.setSize(400,400);
+    add(correct);
+    let txt = new Text("You are correct");
+    txt.setColor("white");
+    txt.setPosition(100,100);
+    add(txt);
+}
