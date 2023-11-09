@@ -1,0 +1,8 @@
+function main() 
+{
+    let hasEnoughCredits = readLine("Do you have enough credits? ");
+    let metGradReq = readLine("Have you met all of your graduation requirements? ");
+    let canGrad = hasEnoughCredits && metGradReq;
+    console.log("Can you graduate?: " + canGrad);
+}
+main();
